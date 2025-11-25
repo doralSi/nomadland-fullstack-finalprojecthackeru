@@ -1,0 +1,366 @@
+.region-page-container {
+  width: 100%;
+  min-height: calc(100vh - 80px);
+}
+
+.region-page-loading,
+.region-page-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  font-size: 1.2rem;
+  color: #666;
+  gap: 1rem;
+}
+
+.region-page-error {
+  color: #e74c3c;
+}
+
+.region-page-error h2 {
+  margin: 0;
+}
+
+/* Hero Banner */
+.region-hero {
+  width: 100%;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+
+.region-hero-content {
+  text-align: center;
+  z-index: 2;
+  padding: 2rem;
+}
+
+.back-to-regions-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-to-regions-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-5px);
+}
+
+.back-to-regions-btn .material-icons {
+  font-size: 20px;
+}
+
+.region-hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.region-hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin: 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Region Content */
+.region-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.region-description-section {
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.region-description-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.region-description-section p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Action Buttons */
+.region-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.region-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.region-action-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #667eea;
+}
+
+.region-action-btn.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+.region-action-btn.primary:hover {
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.region-action-btn .material-icons {
+  font-size: 48px;
+  color: #667eea;
+}
+
+.region-action-btn.primary .material-icons {
+  color: white;
+}
+
+.region-action-btn h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.region-action-btn.primary h3 {
+  color: white;
+}
+
+.region-action-btn p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.region-action-btn.primary p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Info Cards */
+.region-info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.info-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+}
+
+.info-card .material-icons {
+  font-size: 48px;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.info-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Coming Soon Section */
+.coming-soon-section {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.coming-soon-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 2rem;
+}
+
+.coming-soon-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.feature-item .material-icons {
+  font-size: 48px;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.feature-item h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+}
+
+.feature-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Back Button (alternative style) */
+.back-btn {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .region-hero {
+    height: 400px;
+  }
+
+  .region-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .region-hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .back-to-regions-btn {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .region-content {
+    padding: 2rem 1rem;
+  }
+
+  .region-description-section h2 {
+    font-size: 2rem;
+  }
+
+  .region-description-section p {
+    font-size: 1rem;
+  }
+
+  .region-actions {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .region-action-btn {
+    padding: 1.5rem;
+  }
+
+  .region-action-btn .material-icons {
+    font-size: 36px;
+  }
+
+  .coming-soon-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .coming-soon-section h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .region-hero {
+    height: 350px;
+  }
+
+  .region-hero h1 {
+    font-size: 2rem;
+  }
+
+  .region-hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .region-action-btn {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .info-card,
+  .feature-item {
+    padding: 1.5rem 1rem;
+  }
+}

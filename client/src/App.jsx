@@ -9,6 +9,8 @@ import CreatePoint from './pages/CreatePoint';
 import PointList from './pages/PointList';
 import PointDetails from './pages/PointDetails';
 import MapView from './pages/MapView';
+import GlobalMap from './pages/GlobalMap';
+import RegionPage from './pages/RegionPage';
 import './App.css';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/regions" element={<GlobalMap />} />
+          <Route path="/region/:slug" element={<RegionPage />} />
           <Route path="/map" element={<MapView />} />
           <Route path="/points" element={<PointList />} />
           <Route path="/points/:id" element={<PointDetails />} />

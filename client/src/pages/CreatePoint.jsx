@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import axiosInstance from '../api/axiosInstance';
 import { useAuth } from '../context/AuthContext';
+import { useRegion } from '../context/RegionContext';
 import { CATEGORIES } from '../constants/categories';
 import './CreatePoint.css';
 
 const CreatePoint = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
+  const regionSlug = searchParams.get('region');
+  const { selectRegionBySlug, currentRegion } = useRegion();
 
   // Form state
   const [form, setForm] = useState({
@@ -22,6 +26,60 @@ const CreatePoint = () => {
   const [imageFile, setImageFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [regionWarning, setRegionWarning] = useState('');
+
+  // Load region if specified
+  useEffect(() => {
+    if (regionSlug) {
+      loadRegion();
+    }
+  }, [regionSlug]);
+
+  const loadRegion = async () => {
+    try {
+      await selectRegionBySlug(regionSlug);
+    } catch (err) {
+      console.error('Error loading region:', err);
+    }
+  };
+
+  // Check if a point is inside the current region's polygon
+  const isPointInRegion = (lat, lng) => {
+    if (!currentRegion || !currentRegion.polygon) return true;
+
+    const polygon = currentRegion.polygon;
+    const x = lng;
+    const y = lat;
+    let inside = false;
+
+    for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
+      const xi = polygon[i][0];
+      const yi = polygon[i][1];
+      const xj = polygon[j][0];
+      const yj = polygon[j][1];
+
+      const intersect = ((yi > y) !== (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
+      if (intersect) inside = !inside;
+    }
+
+    return inside;
+  };
+
+  // Validate coordinates when they change
+  useEffect(() => {
+    if (form.lat && form.lng && currentRegion) {
+      const lat = parseFloat(form.lat);
+      const lng = parseFloat(form.lng);
+      
+      if (!isNaN(lat) && !isNaN(lng)) {
+        if (!isPointInRegion(lat, lng)) {
+          setRegionWarning(`⚠️ Warning: This location is outside the ${currentRegion.name} region boundary.`);
+        } else {
+          setRegionWarning('');
+        }
+      }
+    }
+  }, [form.lat, form.lng, currentRegion]);
 
   // Handle text input changes
   const handleChange = (e) => {
@@ -93,6 +151,20 @@ const CreatePoint = () => {
         throw new Error('Latitude and longitude must be valid numbers');
       }
 
+      // Validate region if specified
+      const lat = parseFloat(form.lat);
+      const lng = parseFloat(form.lng);
+      
+      if (currentRegion && !isPointInRegion(lat, lng)) {
+        const proceed = window.confirm(
+          `This location is outside the ${currentRegion.name} region. Do you want to proceed anyway?`
+        );
+        if (!proceed) {
+          setLoading(false);
+          return;
+        }
+      }
+
       // Upload image if selected
       let finalImageUrl = form.imageUrl;
       if (imageFile) {
@@ -132,7 +204,21 @@ const CreatePoint = () => {
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">Create New Point</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-6">
+            Create New Point
+            {currentRegion && (
+              <span className="text-lg font-normal text-gray-600 ml-2">
+                in {currentRegion.name}
+              </span>
+            )}
+          </h2>
+
+          {/* Region Warning */}
+          {regionWarning && (
+            <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded mb-4">
+              {regionWarning}
+            </div>
+          )}
 
           {/* Error Display */}
           {error && (

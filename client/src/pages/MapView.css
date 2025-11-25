@@ -22,6 +22,25 @@
   opacity: 0.9;
 }
 
+.region-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+}
+
+.region-badge .material-icons {
+  font-size: 20px;
+}
+
 .map-wrapper {
   width: 100%;
   max-width: 1400px;
