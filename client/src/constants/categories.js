@@ -1,6 +1,6 @@
 export const CATEGORIES = [
   { key: "trail", label: "Trail", icon: "Hiking", materialIcon: "hiking" },
-  { key: "spring", label: "Natural Spring", icon: "Opacity", materialIcon: "water_drop" },
+  { key: "spring", label: "Natural Spring", icon: "Opacity", materialIcon: "opacity" },
   { key: "viewpoint", label: "Viewpoint", icon: "Landscape", materialIcon: "landscape" },
   { key: "beach", label: "Beach", icon: "BeachAccess", materialIcon: "beach_access" },
 

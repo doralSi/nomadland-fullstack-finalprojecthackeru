@@ -47,7 +47,7 @@ const AddPointModal = ({ location, onClose, onSuccess }) => {
         <div className="modal-header">
           <h2>Add New Point</h2>
           <button className="modal-close-btn" onClick={onClose}>
-            <span className="material-icons">close</span>
+            <span className="material-symbols-outlined">close</span>
           </button>
         </div>
 
@@ -101,7 +101,7 @@ const AddPointModal = ({ location, onClose, onSuccess }) => {
           <div className="form-group location-display">
             <label>Location</label>
             <div className="location-info">
-              <span className="material-icons">location_on</span>
+              <span className="material-symbols-outlined">location_on</span>
               <span>
                 Lat: {location.lat.toFixed(6)}, Lng: {location.lng.toFixed(6)}
               </span>
@@ -128,7 +128,7 @@ const AddPointModal = ({ location, onClose, onSuccess }) => {
         </form>
 
         <div className="modal-info">
-          <span className="material-icons">info</span>
+          <span className="material-symbols-outlined">info</span>
           <p>Your point will be reviewed by moderators before appearing on the map.</p>
         </div>
       </div>

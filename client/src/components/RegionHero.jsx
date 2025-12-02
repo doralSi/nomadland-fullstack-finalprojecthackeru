@@ -12,7 +12,7 @@ const RegionHero = ({ name, subtitle, imageUrl, about, onBackClick }) => {
       }}
     >
       <button onClick={onBackClick} className="back-to-regions-btn">
-        <span className="material-icons">arrow_back</span>
+        <span className="material-symbols-outlined">arrow_back</span>
         All Regions
       </button>
       

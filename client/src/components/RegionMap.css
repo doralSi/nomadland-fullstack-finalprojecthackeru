@@ -200,7 +200,7 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-.map-marker .material-icons {
+.map-marker .material-symbols-outlined {
   transform: rotate(45deg);
   color: white;
   font-size: 20px;

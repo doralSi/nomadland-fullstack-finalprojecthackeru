@@ -103,14 +103,14 @@ const RegionEvents = ({ region }) => {
       <div className="events-header">
         <h3>Upcoming Events</h3>
         <button className="add-event-btn" onClick={() => setShowAddModal(true)}>
-          <span className="material-icons">add</span>
+          <span className="material-symbols-outlined">add</span>
           Add Event
         </button>
       </div>
 
       {events.length === 0 ? (
         <div className="no-events">
-          <span className="material-icons">event_busy</span>
+          <span className="material-symbols-outlined">event_busy</span>
           <p>No events scheduled yet</p>
           <p className="no-events-subtitle">Be the first to create an event!</p>
         </div>
@@ -119,7 +119,7 @@ const RegionEvents = ({ region }) => {
           {groupedEvents.today.length > 0 && (
             <div className="events-section">
               <h4 className="events-section-title">
-                <span className="material-icons">today</span>
+                <span className="material-symbols-outlined">today</span>
                 Today
               </h4>
               <div className="events-grid">
@@ -133,7 +133,7 @@ const RegionEvents = ({ region }) => {
           {groupedEvents.tomorrow.length > 0 && (
             <div className="events-section">
               <h4 className="events-section-title">
-                <span className="material-icons">event</span>
+                <span className="material-symbols-outlined">event</span>
                 Tomorrow
               </h4>
               <div className="events-grid">
@@ -147,7 +147,7 @@ const RegionEvents = ({ region }) => {
           {groupedEvents.thisWeek.length > 0 && (
             <div className="events-section">
               <h4 className="events-section-title">
-                <span className="material-icons">date_range</span>
+                <span className="material-symbols-outlined">date_range</span>
                 This Week
               </h4>
               <div className="events-grid">

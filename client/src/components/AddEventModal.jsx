@@ -71,7 +71,7 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
         <div className="modal-header">
           <h2>Add New Event</h2>
           <button className="modal-close-btn" onClick={onClose}>
-            <span className="material-icons">close</span>
+            <span className="material-symbols-outlined">close</span>
           </button>
         </div>
 
@@ -223,7 +223,7 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
         </form>
 
         <div className="modal-info">
-          <span className="material-icons">info</span>
+          <span className="material-symbols-outlined">info</span>
           <p>Your event will be reviewed by moderators before appearing publicly.</p>
         </div>
       </div>

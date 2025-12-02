@@ -1,40 +1,6 @@
 import React from 'react';
 import { CATEGORIES } from '../constants/categories';
-import HikingIcon from '@mui/icons-material/Hiking';
-import OpacityIcon from '@mui/icons-material/Opacity';
-import LandscapeIcon from '@mui/icons-material/Landscape';
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
-import RestaurantIcon from '@mui/icons-material/Restaurant';
-import LocalCafeIcon from '@mui/icons-material/LocalCafe';
-import MuseumIcon from '@mui/icons-material/Museum';
-import StorefrontIcon from '@mui/icons-material/Storefront';
-import PoolIcon from '@mui/icons-material/Pool';
-import DirectionsBusIcon from '@mui/icons-material/DirectionsBus';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import ChildCareIcon from '@mui/icons-material/ChildCare';
-import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
-import SportsSoccerIcon from '@mui/icons-material/SportsSoccer';
-import ChurchIcon from '@mui/icons-material/Church';
 import './CategoryFilter.css';
-
-// Map category keys to Material Icon components
-const iconComponents = {
-  trail: HikingIcon,
-  spring: OpacityIcon,
-  viewpoint: LandscapeIcon,
-  beach: BeachAccessIcon,
-  restaurant: RestaurantIcon,
-  cafe: LocalCafeIcon,
-  culture: MuseumIcon,
-  market: StorefrontIcon,
-  pool: PoolIcon,
-  transit: DirectionsBusIcon,
-  workspace: LaptopMacIcon,
-  kids: ChildCareIcon,
-  medical: LocalHospitalIcon,
-  sports: SportsSoccerIcon,
-  religion: ChurchIcon,
-};
 
 const CategoryFilter = ({ selectedCategories, onToggleCategory }) => {
   const handleCategoryClick = (categoryKey) => {
@@ -67,7 +33,6 @@ const CategoryFilter = ({ selectedCategories, onToggleCategory }) => {
       
       <div className="category-buttons">
         {CATEGORIES.map((category) => {
-          const IconComponent = iconComponents[category.key];
           const isActive = selectedCategories.includes(category.key);
           
           return (
@@ -77,7 +42,9 @@ const CategoryFilter = ({ selectedCategories, onToggleCategory }) => {
               onClick={() => handleCategoryClick(category.key)}
               title={category.label}
             >
-              {IconComponent && <IconComponent className="category-icon" />}
+              <span className="material-symbols-outlined">
+                {category.materialIcon}
+              </span>
               <span className="category-label">{category.label}</span>
             </button>
           );

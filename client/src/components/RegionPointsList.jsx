@@ -13,7 +13,7 @@ const RegionPointsList = ({ region }) => {
   // Helper to get category info
   const getCategoryInfo = (categoryKey) => {
     const cat = CATEGORIES.find(c => c.key === categoryKey);
-    return cat || { key: categoryKey, label: categoryKey, icon: 'LocationOn' };
+    return cat || { key: categoryKey, label: categoryKey, icon: 'LocationOn', materialIcon: 'location_on' };
   };
 
   useEffect(() => {
@@ -74,7 +74,7 @@ const RegionPointsList = ({ region }) => {
           className={`category-filter-btn ${selectedCategory === 'all' ? 'active' : ''}`}
           onClick={() => setSelectedCategory('all')}
         >
-          <span className="material-icons">apps</span>
+          <span className="material-symbols-outlined">apps</span>
           All
         </button>
         {CATEGORIES.map(cat => (
@@ -83,7 +83,7 @@ const RegionPointsList = ({ region }) => {
             className={`category-filter-btn ${selectedCategory === cat.key ? 'active' : ''}`}
             onClick={() => setSelectedCategory(cat.key)}
           >
-            <span className="material-icons">{cat.icon}</span>
+            <span className="material-symbols-outlined">{cat.materialIcon}</span>
             {cat.label}
           </button>
         ))}
@@ -91,7 +91,7 @@ const RegionPointsList = ({ region }) => {
 
       {filteredPoints.length === 0 ? (
         <div className="no-points">
-          <span className="material-icons">explore_off</span>
+          <span className="material-symbols-outlined">explore_off</span>
           <p>No points found in this category</p>
           <p className="no-points-subtitle">Try selecting a different category or add a new point!</p>
         </div>
@@ -100,8 +100,8 @@ const RegionPointsList = ({ region }) => {
           {filteredPoints.map(point => (
             <div key={point._id} className="point-item">
               <div className="point-icon">
-                <span className="material-icons">
-                  {getCategoryInfo(point.category).icon}
+                <span className="material-symbols-outlined">
+                  {getCategoryInfo(point.category).materialIcon}
                 </span>
               </div>
               <div className="point-content">
@@ -110,7 +110,7 @@ const RegionPointsList = ({ region }) => {
                   <span className="point-category-badge">{point.category}</span>
                   {point.averageRating && (
                     <span className="point-rating">
-                      <span className="material-icons">star</span>
+                      <span className="material-symbols-outlined">star</span>
                       {point.averageRating.toFixed(1)}
                     </span>
                   )}
@@ -119,7 +119,7 @@ const RegionPointsList = ({ region }) => {
                   <p className="point-description">{point.description}</p>
                 )}
                 <div className="point-location">
-                  <span className="material-icons">location_on</span>
+                  <span className="material-symbols-outlined">location_on</span>
                   {point.lat.toFixed(4)}, {point.lng.toFixed(4)}
                 </div>
               </div>

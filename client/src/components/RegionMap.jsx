@@ -28,7 +28,7 @@ const createPointIcon = (categoryKey) => {
     className: 'custom-div-icon',
     html: `
       <div class="map-marker category-${categoryKey}">
-        <span class="material-icons">${iconName}</span>
+        <span class="material-symbols-outlined">${iconName}</span>
       </div>
     `,
     iconSize: [40, 40],
@@ -43,7 +43,7 @@ const createEventIcon = () => {
     className: 'custom-div-icon',
     html: `
       <div class="map-marker event-marker">
-        <span class="material-icons">event</span>
+        <span class="material-symbols-outlined">event</span>
       </div>
     `,
     iconSize: [40, 40],
@@ -195,7 +195,7 @@ const RegionMap = ({ region }) => {
             className={`toggle-events-btn ${showEvents ? 'active' : ''}`}
             onClick={handleToggleEvents}
           >
-            <span className="material-icons">event</span>
+            <span className="material-symbols-outlined">event</span>
             {showEvents ? 'Hide Events' : 'Show Events'}
           </button>
         </div>
@@ -268,7 +268,7 @@ const RegionMap = ({ region }) => {
           onClick={handleFabClick}
           title="Add Point"
         >
-          <span className="material-icons">add</span>
+          <span className="material-symbols-outlined">add</span>
         </button>
 
         {isAddingPoint && (

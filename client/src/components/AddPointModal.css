@@ -64,7 +64,7 @@
   color: #e74c3c;
 }
 
-.modal-close-btn .material-icons {
+.modal-close-btn .material-symbols-outlined {
   font-size: 28px;
 }
 
@@ -134,7 +134,7 @@
   font-size: 0.9rem;
 }
 
-.location-info .material-icons {
+.location-info .material-symbols-outlined {
   color: #667eea;
   font-size: 20px;
 }
@@ -193,7 +193,7 @@
   border-radius: 8px;
 }
 
-.modal-info .material-icons {
+.modal-info .material-symbols-outlined {
   color: #3498db;
   font-size: 20px;
 }
