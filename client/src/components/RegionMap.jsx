@@ -4,7 +4,6 @@ import { MapContainer, TileLayer, Polygon, Marker, Popup, useMap, useMapEvents }
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { getPoints } from '../api/points';
-import { getEvents } from '../api/events';
 import { polygonToLeafletFormat, isPointInsideRegion } from '../utils/isInsidePolygon';
 import { CATEGORIES } from '../constants/categories';
 import AddPointModal from './AddPointModal';
@@ -30,21 +29,6 @@ const createPointIcon = (categoryKey) => {
     html: `
       <div class="map-marker category-${categoryKey}">
         <span class="material-symbols-outlined">${iconName}</span>
-      </div>
-    `,
-    iconSize: [32, 32],
-    iconAnchor: [16, 32],
-    popupAnchor: [0, -32]
-  });
-};
-
-// Create custom DivIcon for events
-const createEventIcon = () => {
-  return L.divIcon({
-    className: 'custom-div-icon',
-    html: `
-      <div class="map-marker event-marker">
-        <span class="material-symbols-outlined">event</span>
       </div>
     `,
     iconSize: [32, 32],
@@ -103,11 +87,9 @@ const MapInstanceCapture = ({ onMapReady }) => {
   return null;
 };
 
-const RegionMap = ({ region }) => {
+const RegionMap = ({ region, selectedCategories = [] }) => {
   const navigate = useNavigate();
   const [points, setPoints] = useState([]);
-  const [events, setEvents] = useState([]);
-  const [showEvents, setShowEvents] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isAddingPoint, setIsAddingPoint] = useState(false);
   const [showAddPointModal, setShowAddPointModal] = useState(false);
@@ -146,24 +128,10 @@ const RegionMap = ({ region }) => {
     }
   };
 
-  const loadEvents = async () => {
-    try {
-      // Get events for the next 7 days
-      const startDate = new Date();
-      const endDate = new Date();
-      endDate.setDate(endDate.getDate() + 7);
-      
-      const data = await getEvents(null, startDate.toISOString(), endDate.toISOString());
-      // Filter events for this region based on location
-      const regionEvents = data.filter(event => {
-        if (!event.location) return false;
-        return isPointInsideRegion(event.location.lat, event.location.lng, region);
-      });
-      setEvents(regionEvents);
-    } catch (err) {
-      console.error('Error loading events:', err);
-    }
-  };
+  // Filter points based on selected categories
+  const filteredPoints = selectedCategories.length === 0 
+    ? points 
+    : points.filter(point => selectedCategories.includes(point.category));
 
   const handleFabClick = () => {
     setIsAddingPoint(true);
@@ -228,13 +196,6 @@ const RegionMap = ({ region }) => {
     }
   };
 
-  const handleToggleEvents = async () => {
-    if (!showEvents && events.length === 0) {
-      await loadEvents();
-    }
-    setShowEvents(!showEvents);
-  };
-
   const handleSearch = async (query) => {
     if (!query || query.length < 2) {
       setSearchResults([]);
@@ -244,8 +205,8 @@ const RegionMap = ({ region }) => {
 
     const results = [];
 
-    // 1. Search in our points
-    const matchingPoints = points.filter(point =>
+    // 1. Search in our filtered points
+    const matchingPoints = filteredPoints.filter(point =>
       point.title.toLowerCase().includes(query.toLowerCase()) ||
       point.description?.toLowerCase().includes(query.toLowerCase())
     );
@@ -414,16 +375,6 @@ const RegionMap = ({ region }) => {
             </div>
           )}
         </div>
-
-        <div className="map-controls">
-          <button 
-            className={`toggle-events-btn ${showEvents ? 'active' : ''}`}
-            onClick={handleToggleEvents}
-          >
-            <span className="material-symbols-outlined">event</span>
-            {showEvents ? 'Hide Events' : 'Show Events'}
-          </button>
-        </div>
       </div>
 
       <div className="region-map-container">
@@ -455,8 +406,8 @@ const RegionMap = ({ region }) => {
             }}
           />
 
-          {/* Points markers */}
-          {points.map((point) => (
+          {/* Points markers - filtered by selected categories */}
+          {filteredPoints.map((point) => (
             <Marker
               key={point._id}
               position={[point.lat, point.lng]}
@@ -531,23 +482,6 @@ const RegionMap = ({ region }) => {
                       View Reviews
                     </button>
                   </div>
-                </div>
-              </Popup>
-            </Marker>
-          ))}
-
-          {/* Event markers */}
-          {showEvents && events.map((event) => (
-            <Marker
-              key={event._id}
-              position={[event.location.lat, event.location.lng]}
-              icon={createEventIcon()}
-            >
-              <Popup>
-                <div className="event-popup">
-                  <h3>{event.title}</h3>
-                  <p className="event-date">{new Date(event.date).toLocaleDateString()}</p>
-                  {event.description && <p>{event.description}</p>}
                 </div>
               </Popup>
             </Marker>

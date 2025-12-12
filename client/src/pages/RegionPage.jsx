@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useRegion } from '../context/RegionContext';
+import { getEvents } from '../api/events';
 import RegionHero from '../components/RegionHero';
 import CategoryFilterBar from '../components/CategoryFilterBar';
 import RegionMap from '../components/RegionMap';
-import RegionEvents from '../components/RegionEvents';
-import RegionPointsList from '../components/RegionPointsList';
+import CalendarView from '../components/CalendarView';
+import EventDetailsModal from '../components/EventDetailsModal';
+import AddEventModal from '../components/AddEventModal';
+import { isPointInsideRegion } from '../utils/isInsidePolygon';
 import './RegionPage.css';
 
 const RegionPage = () => {
@@ -14,8 +17,12 @@ const RegionPage = () => {
   const { selectRegionBySlug, currentRegion } = useRegion();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [activeTab, setActiveTab] = useState('events');
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [showEventDetails, setShowEventDetails] = useState(false);
+  const [showAddEventModal, setShowAddEventModal] = useState(false);
+  const mapRef = useRef(null);
 
   useEffect(() => {
     const loadRegion = async () => {
@@ -33,12 +40,63 @@ const RegionPage = () => {
     loadRegion();
   }, [slug, selectRegionBySlug]);
 
+  useEffect(() => {
+    if (currentRegion) {
+      loadEvents();
+    }
+  }, [currentRegion]);
+
+  const loadEvents = async () => {
+    try {
+      // Get events for the next 30 days
+      const startDate = new Date();
+      const endDate = new Date();
+      endDate.setDate(endDate.getDate() + 30);
+      
+      const data = await getEvents(null, startDate.toISOString(), endDate.toISOString());
+      // Filter events for this region based on location
+      const regionEvents = data.filter(event => {
+        if (!event.location) return false;
+        return isPointInsideRegion(event.location.lat, event.location.lng, currentRegion);
+      });
+      setEvents(regionEvents);
+    } catch (err) {
+      console.error('Error loading events:', err);
+    }
+  };
+
   const handleBackToGlobalMap = () => {
     navigate('/regions');
   };
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+  const handleCategorySelect = (categories) => {
+    setSelectedCategories(categories);
+  };
+
+  const handleEventClick = (event) => {
+    setSelectedEvent(event);
+    setShowEventDetails(true);
+  };
+
+  const handleShowEventOnMap = (event) => {
+    setShowEventDetails(false);
+    
+    // Scroll to map
+    if (mapRef.current) {
+      mapRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    
+    // Optional: Add logic to zoom/highlight on map
+    // This would require passing the event location to RegionMap
+  };
+
+  const handleAddEvent = () => {
+    setShowAddEventModal(true);
+  };
+
+  const handleEventCreated = () => {
+    setShowAddEventModal(false);
+    loadEvents(); // Refresh events
   };
 
   if (loading) {
@@ -78,37 +136,37 @@ const RegionPage = () => {
       </div>
 
       <CategoryFilterBar 
-        selectedCategory={selectedCategory}
+        selectedCategories={selectedCategories}
         onSelectCategory={handleCategorySelect}
       />
 
-      <RegionMap region={currentRegion} selectedCategory={selectedCategory} />
-
-      <div className="region-tabs-section">
-        <div className="region-tabs">
-          <button 
-            className={`region-tab ${activeTab === 'events' ? 'active' : ''}`}
-            onClick={() => setActiveTab('events')}
-            data-label="Events"
-            aria-label="Events"
-          >
-            <span className="material-symbols-outlined">event</span>
-          </button>
-          <button 
-            className={`region-tab ${activeTab === 'points' ? 'active' : ''}`}
-            onClick={() => setActiveTab('points')}
-            data-label="Points"
-            aria-label="Points List"
-          >
-            <span className="material-symbols-outlined">list</span>
-          </button>
-        </div>
-
-        <div className="region-tab-content">
-          {activeTab === 'events' && <RegionEvents region={currentRegion} />}
-          {activeTab === 'points' && <RegionPointsList region={currentRegion} />}
-        </div>
+      <div ref={mapRef}>
+        <RegionMap region={currentRegion} selectedCategories={selectedCategories} />
       </div>
+
+      <CalendarView
+        events={events}
+        region={currentRegion}
+        onEventClick={handleEventClick}
+        onAddEvent={handleAddEvent}
+      />
+
+      {showEventDetails && selectedEvent && (
+        <EventDetailsModal
+          event={selectedEvent}
+          region={currentRegion}
+          onClose={() => setShowEventDetails(false)}
+          onShowOnMap={handleShowEventOnMap}
+        />
+      )}
+
+      {showAddEventModal && (
+        <AddEventModal
+          region={currentRegion}
+          onClose={() => setShowAddEventModal(false)}
+          onSuccess={handleEventCreated}
+        />
+      )}
     </div>
   );
 };
