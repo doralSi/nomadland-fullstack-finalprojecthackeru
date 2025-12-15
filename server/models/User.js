@@ -24,6 +24,11 @@ const userSchema = new mongoose.Schema({
     enum: ["user", "mapRanger", "admin"],
     default: "user",
   },
+  status: {
+    type: String,
+    enum: ["active", "frozen"],
+    default: "active",
+  },
   avatar: {
     type: String,
     default: "",

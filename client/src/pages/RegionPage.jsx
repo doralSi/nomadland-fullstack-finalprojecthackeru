@@ -68,7 +68,7 @@ const RegionPage = () => {
   };
 
   const handleBackToGlobalMap = () => {
-    navigate('/regions');
+    navigate('/');
   };
 
   const handleCategorySelect = (categories) => {
@@ -133,6 +133,7 @@ const RegionPage = () => {
         imageUrl={currentRegion.heroImageUrl}
         about={currentRegion.description}
         onBackClick={handleBackToGlobalMap}
+        buttonText="Back to Map"
       />
 
       <div className="region-about-section">

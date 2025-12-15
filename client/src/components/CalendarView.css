@@ -120,6 +120,7 @@
 .calendar-content {
   padding: 24px;
   min-height: 600px;
+  background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 100%);
 }
 
 /* React Big Calendar Custom Styling */
@@ -135,23 +136,25 @@
 }
 
 .rbc-toolbar button {
-  padding: 10px 18px;
+  padding: 12px 24px;
   background: white;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
-  color: #333;
-  font-size: 14px;
-  font-weight: 600;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .rbc-toolbar button:hover {
-  background: #f8f9ff;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f3ff 100%);
   border-color: #667eea;
   color: #667eea;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.25);
 }
 
 .rbc-toolbar button.rbc-active {
@@ -163,9 +166,9 @@
 
 .rbc-toolbar-label {
   font-size: 22px;
-  font-weight: 700;
-  color: #333;
-  letter-spacing: -0.3px;
+  font-weight: 600;
+  color: #444;
+  letter-spacing: 0.2px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
 
@@ -174,18 +177,18 @@
   border: 1px solid #e0e0e0;
   border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .rbc-header {
   padding: 14px;
   background: #f8f9fa;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 13px;
   text-transform: uppercase;
   color: #666;
   border-bottom: 2px solid #e0e0e0;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
 
@@ -207,7 +210,9 @@
 }
 
 .rbc-today {
-  background: #f0f3ff;
+  background: linear-gradient(135deg, #f0f3ff 0%, #e8edff 100%);
+  position: relative;
+  box-shadow: inset 0 0 0 2px #667eea;
 }
 
 .rbc-date-cell {
@@ -216,16 +221,17 @@
 }
 
 .rbc-date-cell > a {
-  font-weight: 700;
-  color: #333;
+  font-weight: 500;
+  color: #444;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
 
 .rbc-now > a {
   color: #667eea;
-  font-weight: 800;
-  font-size: 15px;
+  font-weight: 700;
+  font-size: 16px;
+  text-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
 }
 
 /* Week View */
@@ -233,7 +239,7 @@
   border: 1px solid #e0e0e0;
   border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 .rbc-time-header {
@@ -273,22 +279,22 @@
 
 /* Events */
 .rbc-event {
-  background-color: #667eea;
-  border-radius: 4px;
+  background: #667eea;
+  border-radius: 6px;
   border: none;
   padding: 6px 10px;
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 8px rgba(102, 126, 234, 0.3);
 }
 
 .rbc-event:hover {
-  background-color: #5568d3;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.35);
+  background: #5568d3;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.45);
 }
 
 .rbc-event.rbc-selected {
@@ -347,6 +353,245 @@
   margin-bottom: 8px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   font-size: 14px;
+}
+
+/* Day View Cards Styling */
+.day-view-cards {
+  padding: 20px;
+}
+
+.day-view-header {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #f8f9ff 0%, #f0f3ff 100%);
+  border-radius: 16px;
+  border: 2px solid #e8edff;
+}
+
+.day-view-header h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+.day-view-header h2 .material-symbols-outlined {
+  font-size: 32px;
+  color: #fbbf24;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.day-subtitle {
+  margin: 0;
+  font-size: 16px;
+  color: #667;
+  font-weight: 500;
+}
+
+.day-view-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  text-align: center;
+  color: #999;
+}
+
+.day-view-empty .material-symbols-outlined {
+  font-size: 64px;
+  color: #ddd;
+  margin-bottom: 16px;
+}
+
+.day-view-empty h3 {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #666;
+}
+
+.day-view-empty p {
+  margin: 0;
+  font-size: 16px;
+  color: #999;
+}
+
+/* Events Feed */
+.events-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Event Card */
+.event-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.event-card-image {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.event-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card-image img {
+  transform: scale(1.05);
+}
+
+.event-card-time-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.event-card-time-badge .material-symbols-outlined {
+  font-size: 20px;
+}
+
+.event-card-content {
+  padding: 16px;
+}
+
+.event-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.event-card-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+  flex: 1;
+}
+
+.event-duration {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: #f0f3ff;
+  color: #667eea;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.event-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #666;
+  font-size: 14px;
+}
+
+.event-location .material-symbols-outlined {
+  font-size: 20px;
+  color: #667eea;
+}
+
+.event-description {
+  margin: 0 0 12px 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.event-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.event-category {
+  display: inline-block;
+  padding: 6px 14px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.event-details-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  color: #667eea;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.event-details-btn:hover {
+  background: #667eea;
+  color: white;
+  transform: translateX(4px);
+}
+
+.event-details-btn .material-symbols-outlined {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.event-details-btn:hover .material-symbols-outlined {
+  transform: translateX(4px);
 }
 
 /* Responsive Design */
@@ -418,5 +663,42 @@
     font-size: 11px;
     padding: 4px 6px;
     font-weight: 600;
+  }
+
+  /* Day View Cards Responsive */
+  .day-view-cards {
+    padding: 12px;
+  }
+
+  .day-view-header h2 {
+    font-size: 22px;
+  }
+
+  .event-card-image {
+    height: 180px;
+  }
+
+  .event-card-content {
+    padding: 16px;
+  }
+
+  .event-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-card-header h3 {
+    font-size: 20px;
+  }
+
+  .event-card-footer {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .event-details-btn {
+    width: 100%;
+    justify-content: center;
   }
 }

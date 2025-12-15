@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { useLanguage } from '../context/LanguageContext';
 import RegionsDropdown from './RegionsDropdown';
 import './Navbar.css';
 
 const Navbar = () => {
   const { user, isAuthenticated, logout } = useAuth();
-  const { language, setLanguage } = useLanguage();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
+  // Dark Mode State
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('darkMode');
+    return saved === 'true';
+  });
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'he' ? 'en' : 'he');
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    localStorage.setItem('darkMode', isDarkMode);
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   const handleLogout = () => {
@@ -52,6 +65,10 @@ const Navbar = () => {
           </li>
           
           <li className="navbar-item">
+            <Link to="/about" className="navbar-link" onClick={closeMobileMenu}>About</Link>
+          </li>
+          
+          <li className="navbar-item">
             <RegionsDropdown onNavigate={closeMobileMenu} />
           </li>
           
@@ -67,16 +84,28 @@ const Navbar = () => {
                   </Link>
                 </li>
               )}
+              {user?.role === 'admin' && (
+                <li className="navbar-item">
+                  <Link to="/admin" className="navbar-link" onClick={closeMobileMenu}>
+                    Admin Panel
+                  </Link>
+                </li>
+              )}
               <li className="navbar-item">
                 <span className="navbar-user">Welcome, {user?.firstName || user?.name || user?.email}</span>
               </li>
               <li className="navbar-item">
-                <button 
-                  onClick={toggleLanguage} 
-                  className="navbar-language-btn"
-                  title={language === 'he' ? 'Switch to English' : 'עבור לעברית'}
-                >
-                  🌐 <span className="language-label">{language === 'he' ? 'HE' : 'EN'}</span>
+                <Link to="/profile" className="navbar-icon-button" title="My Profile" onClick={closeMobileMenu}>
+                  <span className="material-symbols-outlined">
+                    account_circle
+                  </span>
+                </Link>
+              </li>
+              <li className="navbar-item">
+                <button onClick={toggleDarkMode} className="navbar-icon-button" title={isDarkMode ? 'Light Mode' : 'Dark Mode'}>
+                  <span className="material-symbols-outlined">
+                    {isDarkMode ? 'light_mode' : 'dark_mode'}
+                  </span>
                 </button>
               </li>
               <li className="navbar-item">
@@ -90,6 +119,13 @@ const Navbar = () => {
               </li>
               <li className="navbar-item">
                 <Link to="/register" className="navbar-link" onClick={closeMobileMenu}>Register</Link>
+              </li>
+              <li className="navbar-item">
+                <button onClick={toggleDarkMode} className="navbar-icon-button" title={isDarkMode ? 'Light Mode' : 'Dark Mode'}>
+                  <span className="material-symbols-outlined">
+                    {isDarkMode ? 'light_mode' : 'dark_mode'}
+                  </span>
+                </button>
               </li>
             </>
           )}

@@ -11,4 +11,145 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+/* Dark Mode - Cards and Panels */
+body.dark-mode .card,
+body.dark-mode .region-card,
+body.dark-mode .accessibility-menu,
+body.dark-mode .auth-form,
+body.dark-mode .point-card {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+/* Dark Mode - Navbar */
+body.dark-mode .navbar {
+  background-color: #1e1e1e;
+}
+
+/* Dark Mode - Inputs */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #888;
+}
+
+/* Dark Mode - Containers */
+body.dark-mode .global-map-container,
+body.dark-mode .my-maps-container,
+body.dark-mode .personal-region-map-container,
+body.dark-mode .region-page-container,
+body.dark-mode .app,
+body.dark-mode .container {
+  background: #1a1a1a !important;
+}
+
+/* Dark Mode - Calendar and surrounding areas */
+body.dark-mode .calendar-container,
+body.dark-mode .calendar-view,
+body.dark-mode .day-card,
+body.dark-mode .event-card-calendar {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+/* Dark Mode - Auth Forms */
+body.dark-mode .auth-container {
+  background: #1a1a1a !important;
+}
+
+body.dark-mode .auth-card,
+body.dark-mode .auth-form {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .auth-card h2,
+body.dark-mode .auth-form h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .auth-form label {
+  color: #e0e0e0;
+}
+
+body.dark-mode .form-footer {
+  color: #b0b0b0;
+}
+
+body.dark-mode .form-footer a {
+  color: #88b3ff;
+}
+
+/* Dark Mode - Text */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode li {
+  color: #e0e0e0;
+}
+
+/* Dark Mode - Links */
+body.dark-mode a {
+  color: #88b3ff;
+}
+
+/* Dark Mode - Region Cards */
+body.dark-mode .region-card-content {
+  background-color: #2d2d2d;
+}
+
+/* Map containers should NOT change in dark mode */
+body.dark-mode .leaflet-container,
+body.dark-mode .global-map-map,
+body.dark-mode .region-map {
+  background-color: inherit !important;
+}
+
+/* Accessibility: Increase Spacing */
+body.increase-spacing {
+  line-height: 1.8;
+}
+
+body.increase-spacing p,
+body.increase-spacing li,
+body.increase-spacing div {
+  margin-bottom: 1.2em;
+}
+
+body.increase-spacing .card,
+body.increase-spacing .accessibility-section,
+body.increase-spacing button,
+body.increase-spacing input {
+  margin-bottom: 1.5em;
+}
+
+body.increase-spacing h1,
+body.increase-spacing h2,
+body.increase-spacing h3 {
+  margin-bottom: 1em;
+  margin-top: 1em;
 }

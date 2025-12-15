@@ -49,7 +49,7 @@ const GlobalMap = () => {
     <div className="global-map-container">
       <div className="global-map-header">
         <h1>NomadLand Regions</h1>
-        <p>Explore our digital nomad communities around the world</p>
+        <p>Explore travel destinations around the world</p>
       </div>
 
       <div className="global-map-wrapper">

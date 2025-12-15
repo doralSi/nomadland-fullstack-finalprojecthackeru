@@ -45,3 +45,56 @@ export const login = async (req, res) => {
         res.status(500).json({ message: "Server error" });
     }
 };
+
+// UPDATE USER PROFILE
+export const updateUserProfile = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const { name, password } = req.body;
+
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        // Update name if provided
+        if (name) {
+            user.name = name;
+        }
+
+        // Update password if provided
+        if (password) {
+            if (password.length < 6) {
+                return res.status(400).json({ message: "Password must be at least 6 characters" });
+            }
+            const hashedPassword = await bcrypt.hash(password, 10);
+            user.password = hashedPassword;
+        }
+
+        await user.save();
+
+        // Create new token with updated info
+        const token = jwt.sign(
+            { id: user._id, email: user.email, role: user.role },
+            process.env.JWT_SECRET,
+            { expiresIn: "7d" }
+        );
+
+        res.json({
+            message: "Profile updated successfully",
+            token,
+            user: {
+                id: user._id,
+                email: user.email,
+                name: user.name,
+                role: user.role,
+                createdAt: user.createdAt
+            }
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: "Server error" });
+    }
+};

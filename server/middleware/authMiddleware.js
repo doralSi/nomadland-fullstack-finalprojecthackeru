@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
+import User from "../models/User.js";
 
-export const authMiddleware = (req, res, next) => {
+export const authMiddleware = async (req, res, next) => {
     try {
         const token = req.header("Authorization")?.replace("Bearer ", "");
 
@@ -9,6 +10,16 @@ export const authMiddleware = (req, res, next) => {
         }
 
         const verified = jwt.verify(token, process.env.JWT_SECRET);
+
+        // Check if user is frozen
+        const user = await User.findById(verified.id);
+        if (!user) {
+            return res.status(401).json({ message: "User not found" });
+        }
+        
+        if (user.status === 'frozen') {
+            return res.status(403).json({ message: "Your account has been frozen. Please contact support." });
+        }
 
         req.user = verified; // מוסיף את ה־user decoded לבקשה
         next();

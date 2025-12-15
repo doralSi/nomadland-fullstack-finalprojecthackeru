@@ -515,6 +515,10 @@ const RegionMap = ({ region, selectedCategories = [], eventToShow = null }) => {
               icon={createPointIcon(point.category, selectedPoint?._id === point._id)}
               eventHandlers={{
                 click: () => {
+                  // Only logged-in users can view point details
+                  if (!user) {
+                    return;
+                  }
                   setSelectedPoint(point);
                   // Center map on selected point
                   if (mapInstance) {

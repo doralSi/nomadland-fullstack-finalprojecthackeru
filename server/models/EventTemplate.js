@@ -98,6 +98,14 @@ const eventTemplateSchema = new mongoose.Schema({
       required: true
     }
   },
+  locationName: {
+    type: String,
+    trim: true
+  },
+  venue: {
+    type: String,
+    trim: true
+  },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',

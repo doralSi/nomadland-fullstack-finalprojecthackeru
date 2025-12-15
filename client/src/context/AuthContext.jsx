@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axiosInstance from '../api/axiosInstance';
-import { saveToken, getToken, removeToken, getUserFromToken } from '../utils/auth';
+import { saveToken, getToken, removeToken, saveUser, getUser } from '../utils/auth';
 
 const AuthContext = createContext();
 
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = getToken();
     if (token) {
-      const userData = getUserFromToken();
+      const userData = getUser();
       setUser(userData);
     }
     setLoading(false);
@@ -34,6 +34,7 @@ export const AuthProvider = ({ children }) => {
       const { token, user: userData } = response.data;
       
       saveToken(token);
+      saveUser(userData);
       setUser(userData);
       return { success: true };
     } catch (err) {
@@ -50,6 +51,7 @@ export const AuthProvider = ({ children }) => {
       const { token, user: newUser } = response.data;
       
       saveToken(token);
+      saveUser(newUser);
       setUser(newUser);
       return { success: true };
     } catch (err) {
@@ -72,6 +74,7 @@ export const AuthProvider = ({ children }) => {
       const { token, user: userData } = response.data;
       
       saveToken(token);
+      saveUser(userData);
       setUser(userData);
       return { success: true };
     } catch (err) {

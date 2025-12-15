@@ -13,9 +13,9 @@ import personalMapRoutes from "./routes/personalMapRoutes.js";
 import mapRangerRoutes from "./routes/mapRangerRoutes.js";
 import languageTestRoutes from "./routes/languageTestRoutes.js";
 import googleAuthRoutes from "./routes/googleAuthRoutes.js";
+import adminRoutes from "./routes/adminRoutes.js";
 
 dotenv.config();
-connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api/auth/google", googleAuthRoutes);
-app.use("/api/auth", userRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/points", pointRoutes);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/regions", regionRoutes);
@@ -33,9 +33,11 @@ app.use("/api/reviews", reviewRoutes);
 app.use("/api/personal-maps", personalMapRoutes);
 app.use("/api/map-ranger", mapRangerRoutes);
 app.use("/api/languages", languageTestRoutes);
+app.use("/api/admin", adminRoutes);
 
 console.log("✅ Auth routes registered at /api/auth");
 console.log("✅ Google auth routes registered at /api/auth/google");
+console.log("✅ User routes registered at /api/users");
 console.log("✅ Point routes registered at /api/points");
 console.log("✅ Upload routes registered at /api/upload");
 console.log("✅ Region routes registered at /api/regions");
@@ -44,12 +46,19 @@ console.log("✅ Review routes registered at /api/reviews");
 console.log("✅ Personal map routes registered at /api/personal-maps");
 console.log("✅ Map Ranger routes registered at /api/map-ranger");
 console.log("✅ Language test routes registered at /api/languages");
+console.log("✅ Admin routes registered at /api/admin");
 
 // בדיקה שהשרת רץ
 app.get("/", (req, res) => {
   res.send("NomadLand API is running 🚀");
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-});
+// Connect to DB first, then start server
+const startServer = async () => {
+  await connectDB();
+  app.listen(PORT, () => {
+    console.log(`✅ Server running on port ${PORT}`);
+  });
+};
+
+startServer();

@@ -17,8 +17,112 @@ const localizer = dateFnsLocalizer({
   locales,
 });
 
+// Day View Cards Component
+const DayViewCards = ({ events, date, onEventClick }) => {
+  const dayEvents = events.filter(event => {
+    const eventDate = new Date(event.start);
+    return eventDate.toDateString() === date.toDateString();
+  }).sort((a, b) => a.start - b.start);
+
+  if (dayEvents.length === 0) {
+    return (
+      <div className="day-view-empty">
+        <span className="material-symbols-outlined">event_busy</span>
+        <h3>No events scheduled for this day</h3>
+        <p>Check out other days or add a new event!</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="day-view-cards">
+      <div className="day-view-header">
+        <h2>
+          <span className="material-symbols-outlined">wb_sunny</span>
+          What's happening on {format(date, 'EEEE, MMMM d')}?
+        </h2>
+        <p className="day-subtitle">{dayEvents.length} event{dayEvents.length !== 1 ? 's' : ''} scheduled</p>
+      </div>
+      
+      <div className="events-feed">
+        {dayEvents.map((event) => {
+          const eventResource = event.resource || {};
+          
+          // Handle location display - only show text locations, not coordinates
+          let locationText = '';
+          if (eventResource.locationName) {
+            locationText = eventResource.locationName;
+          } else if (eventResource.venue) {
+            locationText = eventResource.venue;
+          } else if (typeof eventResource.location === 'string') {
+            locationText = eventResource.location;
+          }
+          // Don't show numeric coordinates
+          
+          return (
+            <div 
+              key={event.id} 
+              className="event-card"
+              onClick={() => onEventClick(event)}
+            >
+              {eventResource.imageUrl && (
+                <div className="event-card-image">
+                  <img src={eventResource.imageUrl} alt={event.title} />
+                  <div className="event-card-time-badge">
+                    <span className="material-symbols-outlined">schedule</span>
+                    {format(event.start, 'HH:mm')}
+                  </div>
+                </div>
+              )}
+              
+              <div className="event-card-content">
+                <div className="event-card-header">
+                  <h3>{event.title}</h3>
+                  {!event.allDay && (
+                    <span className="event-duration">
+                      {format(event.start, 'HH:mm')} - {format(event.end, 'HH:mm')}
+                    </span>
+                  )}
+                </div>
+                
+                {locationText && (
+                  <div className="event-location">
+                    <span className="material-symbols-outlined">location_on</span>
+                    <span>{locationText}</span>
+                  </div>
+                )}
+                
+                {eventResource.description && (
+                  <p className="event-description">
+                    {eventResource.description.length > 150 
+                      ? eventResource.description.substring(0, 150) + '...'
+                      : eventResource.description
+                    }
+                  </p>
+                )}
+                
+                <div className="event-card-footer">
+                  {eventResource.category && (
+                    <span className="event-category">
+                      {eventResource.category}
+                    </span>
+                  )}
+                  <button className="event-details-btn">
+                    View Details
+                    <span className="material-symbols-outlined">arrow_forward</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 const CalendarView = ({ events = [], region, onEventClick, onAddEvent }) => {
-  const [view, setView] = useState('week'); // 'month', 'week', 'day'
+  const [view, setView] = useState('day'); // 'month', 'week', 'day'
   const [date, setDate] = useState(new Date());
 
   // Transform events to calendar format
@@ -127,33 +231,34 @@ const CalendarView = ({ events = [], region, onEventClick, onAddEvent }) => {
       </div>
 
       <div className="calendar-content">
-        <Calendar
-          localizer={localizer}
-          events={calendarEvents}
-          startAccessor="start"
-          endAccessor="end"
-          style={{ height: 600 }}
-          view={view}
-          onView={setView}
-          date={date}
-          onNavigate={setDate}
-          onSelectEvent={handleSelectEvent}
-          onSelectSlot={handleSelectSlot}
-          selectable
-          eventPropGetter={eventStyleGetter}
-          popup
-          views={['month', 'week', 'day']}
-          step={60}
-          timeslots={1}
-          messages={{
-            next: '›',
-            previous: '‹',
-            today: 'Today',
-            month: 'Month',
-            week: 'Week',
-            day: 'Day',
-          }}
-        />
+        {view === 'day' ? (
+          <DayViewCards 
+            events={calendarEvents}
+            date={date}
+            onEventClick={handleSelectEvent}
+          />
+        ) : (
+          <Calendar
+            localizer={localizer}
+            events={calendarEvents}
+            startAccessor="start"
+            endAccessor="end"
+            style={{ height: 600 }}
+            view={view}
+            onView={setView}
+            date={date}
+            onNavigate={setDate}
+            onSelectEvent={handleSelectEvent}
+            onSelectSlot={handleSelectSlot}
+            selectable
+            eventPropGetter={eventStyleGetter}
+            popup
+            views={['month', 'week', 'day']}
+            toolbar={false}
+            step={60}
+            timeslots={1}
+          />
+        )}
       </div>
     </div>
   );
