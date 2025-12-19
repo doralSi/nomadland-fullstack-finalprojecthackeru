@@ -3,11 +3,13 @@ import Region from '../models/Region.js';
 // Get all active regions
 export const getAllRegions = async (req, res) => {
   try {
+    console.log('📍 getAllRegions called');
     const regions = await Region.find({ isActive: true }).sort({ name: 1 });
+    console.log('📍 Regions found:', regions.length);
     res.json(regions);
   } catch (error) {
-    console.error('Error fetching regions:', error);
-    res.status(500).json({ message: 'Failed to fetch regions' });
+    console.error('❌ Error fetching regions:', error);
+    res.status(500).json({ message: 'Failed to fetch regions', error: error.message });
   }
 };
 

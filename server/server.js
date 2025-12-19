@@ -49,6 +49,12 @@ app.use(express.json());
 app.use(morgan('dev')); // HTTP request logger
 app.use(generalLimiter); // Apply general rate limiting to all routes
 
+// Debug middleware
+app.use((req, res, next) => {
+  console.log(`📨 ${req.method} ${req.url}`);
+  next();
+});
+
 // Routes
 app.use("/api/auth", authLimiter, authRoutes); // Apply strict rate limiting to auth
 app.use("/api/auth/google", googleAuthRoutes);
@@ -80,6 +86,15 @@ console.log("✅ Admin routes registered at /api/admin");
 // בדיקה שהשרת רץ
 app.get("/", (req, res) => {
   res.send("NomadLand API is running 🚀");
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error('❌ Global error handler:', err);
+  res.status(err.status || 500).json({
+    message: err.message || 'Internal Server Error',
+    error: process.env.NODE_ENV === 'development' ? err : {}
+  });
 });
 
 // Connect to DB first, then start server
