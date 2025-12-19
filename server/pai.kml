@@ -1,0 +1,2341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name><![CDATA[פאי, צ'יאנג מאי]]></name>
+    <description><![CDATA[המלצות אישיות שלי לפאי וצ'יאנג מאי, מבוססות על מקומות שהיינו וממליצים ומקומות שהומלצו לנו ע"י אחרים. עומדת מאחורי רובן המוחלט, יש כמה מקומות שלא הספקנו להיות אבל עדיין השארתי אותן כהמלצות של אחרים. נכון לינואר 2024<br>מוזמנות ומוזמנים ליצור קשר באינסטוש @rotem.kalmar.sinai או בוואטספ +972523264494 ]]></description>
+    <Style id="icon-1523-097138-normal">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1523-097138-highlight">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1523-097138">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1523-097138-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1523-097138-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1534-9C27B0-normal">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1534-9C27B0-highlight">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1534-9C27B0">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1534-9C27B0-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1534-9C27B0-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1534-9C27B0-nodesc-normal">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1534-9C27B0-nodesc-highlight">
+      <IconStyle>
+        <color>ffb0279c</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1534-9C27B0-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1534-9C27B0-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1534-9C27B0-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1577-FF5252-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1577-FF5252-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1577-FF5252">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1577-FF5252-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1577-FF5252-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1577-FF5252-nodesc-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1577-FF5252-nodesc-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1577-FF5252-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1577-FF5252-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1577-FF5252-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1582-FF5252-normal">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1582-FF5252-highlight">
+      <IconStyle>
+        <color>ff5252ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1582-FF5252">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1582-FF5252-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1582-FF5252-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1634-097138-normal">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1634-097138-highlight">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1634-097138">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1634-097138-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1634-097138-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1634-097138-nodesc-normal">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1634-097138-nodesc-highlight">
+      <IconStyle>
+        <color>ff387109</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1634-097138-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1634-097138-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1634-097138-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1640-F9A825-normal">
+      <IconStyle>
+        <color>ff25a8f9</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1640-F9A825-highlight">
+      <IconStyle>
+        <color>ff25a8f9</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1640-F9A825">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1640-F9A825-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1640-F9A825-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1640-F9A825-nodesc-normal">
+      <IconStyle>
+        <color>ff25a8f9</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1640-F9A825-nodesc-highlight">
+      <IconStyle>
+        <color>ff25a8f9</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1640-F9A825-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1640-F9A825-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1640-F9A825-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1701-1A237E-normal">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1701-1A237E-highlight">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1701-1A237E">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1701-1A237E-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1701-1A237E-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1701-1A237E-nodesc-normal">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1701-1A237E-nodesc-highlight">
+      <IconStyle>
+        <color>ff7e231a</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1701-1A237E-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1701-1A237E-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1701-1A237E-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1706-E65100-normal">
+      <IconStyle>
+        <color>ff0051e6</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1706-E65100-highlight">
+      <IconStyle>
+        <color>ff0051e6</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1706-E65100">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1706-E65100-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1706-E65100-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1706-FFD600-normal">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1706-FFD600-highlight">
+      <IconStyle>
+        <color>ff00d6ff</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1706-FFD600">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1706-FFD600-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1706-FFD600-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1811-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1811-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1811-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1811-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1811-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1811-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1811-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1811-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1811-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1811-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1844-673AB7-normal">
+      <IconStyle>
+        <color>ffb73a67</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1844-673AB7-highlight">
+      <IconStyle>
+        <color>ffb73a67</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1844-673AB7">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1844-673AB7-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1844-673AB7-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1844-673AB7-nodesc-normal">
+      <IconStyle>
+        <color>ffb73a67</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1844-673AB7-nodesc-highlight">
+      <IconStyle>
+        <color>ffb73a67</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1844-673AB7-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1844-673AB7-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1844-673AB7-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1892-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1892-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1892-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1892-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1892-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-0288D1-nodesc-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-nodesc-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="32" xunits="pixels" y="64" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Folder>
+      <name>בתי קפה</name>
+      <Placemark>
+        <name>Elely Cafe’ แอลลี่ คาเฟ่‏</name>
+        <description>בית קפה מקסים וטעים עם נוף מהמם ופילים!</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.9410448,19.0688143,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Coffee We / Witch's House‏‏]]></name>
+        <description>לא היינו - בית קפה חמוד תיירותי אבל בדיוק באמצע של הדרך</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.6705737,19.2181948,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rak Chang Viewpoint‏‏</name>
+        <description>לא היינו - נקודת תצפית על קפה מהממת</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.6381232,19.251141,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Barbari bakery</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4416569,19.352076,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Khaotha Coffee / Roastered Pai</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4420029,19.352059,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Art Farm Studio‏</name>
+        <description>בית קפה, גלריה וחדרי איירבנב - מקום מהמם אבל אין כניסה לילדים מתחת לגיל 12 </description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4479499,19.3872332,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>W8 x viangpha cafe‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.994155,18.7902529,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mountain Coffee by Noi</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9914816,18.7910339,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chom Cafe and Restaurant</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9455152,18.7484954,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sun Rays Cafe</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9797702,18.7876556,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Bear Hug Cafe']]></name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9933469,18.7828996,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bella Goose Cafe at the Hill</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9989615,18.781236,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Carp Cafe’‏‏</name>
+        <description>לא היינו -בית קפה שיושבים בתוך בריכת דגים</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.9307901,18.7362127,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pai coffee Studio‏</name>
+        <description>עבודה מבית הקפה - הכי טוב מבחינת נוחות. אינטרנט מעולה, אין ניתוקים, שקט שם מאוד, פסטורלי בחוץ. אפשר להזרק על הדשא בחוץ ללהספקה, כסאות ושולחנות נוחים, אווירה שקטה מאוד כולם כמעט עם מחשבים. קפה טוב, אבל אין אפשרות אוכל כמעט (גם לא מאפים. אולי סתם איזה טוסט לבן עם ריבה וחמאה של אריזת בית מלון) וגם המקום די קטן אז צריך לחלוק לפעמים (לי אישית לא מפריע)</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4482754,19.3579578,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Carrot On The Moon‏</name>
+        <description>אווירה מאוד נעימה, מקום פתוח ומוצל ברובו, קפה טוב על הצד החמצמץ יותר, שולחן גדול משותף שאפשר לעבוד ממנו בנוחות, גם אינטרנט מעולה, מחבר גדול של אוכל מערבי ונשנושים (כמו סקונס) על צד המחיר הקצת גבוה יותר אבל לא משהו חריג.תמיד שקט שם מאוד כי אין את הקהל של מרכז העיר למרות שהוא די במרכז. פחות אווירת עבודה אבל כמעט תמיד יש עוד אנשים עם מחשבים.</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4393041,19.3629277,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Rainny Cafe ฝอฝนน้ำปั่น(coffee&fruitshake)‏‏]]></name>
+        <description><![CDATA[לנסות את הפודינג צ'יה. אווירה קצת יותר "שאנטי" אבל נעים ונוח מאוד. המקום פתוח (מוצל) ופונה לרחוב אז יש את הרעש של מרכז העיר, חלק יראו חסרון חלק כהשראה חח<br>הרבה אפשרויות של אוכל ונשנושים קפה טוב, על הצד החזק יותר]]></description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4393648,19.3587941,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>The Pedlar‏</name>
+        <description>נראה לי המקום לעבודה, כמעט כולם שם עם מחשבים, קפה טוב מאוד, הרבה אפשרויות אוכל ונשנושים (ראיתי היום קרואסונים אפילו) גם מחיר על הצד הגבוה יותר איטנרנט מעולה, מרווח מאוד לעבודה בין אם שולחנות פרטיים או משותפים.משום שהוא ממש במרכז העיר לעיתים נכנסים גם אנשים ומשפחות ויכול להיות קצת קולני כמו בית קפה בתל אביב, אבל אם יש סבלנות לחכות את ה 45 דקות שיאכלו פנקייק וילכו אז הכל טוב.</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4397541,19.3609356,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Om Garden Cafe‏</name>
+        <description><![CDATA[האינטרנט והקפה הכי פחות טוב מכולם (בעיני), אבל מאוד פופולארי. נוח מאוד לעבוד, הוא פתוח ומוצל ותמיד נעים, הרבה שולחנות ותפריט עשיר מאוד ברמת מחיר ממוצעת. גם פה יכול להיות רועש שמתמלא. אבל המקום די גדול שזה מתפזר טוב.אוהב לשבת שם שאני יודע שארצה גם לאכול צהריים בחוץ באותו יום. התפריט הכי טוב בין כל המקומות שציינתי.<br>חשוב רק שרובם סוגרים ב 16:00-17:00 ולמי שחשוב לעבוד בשעון ישראל\אירופה זה די מוקדם.]]></description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4408185,19.3571384,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chang Puak Handcrafted Coffee House</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4522933,19.3495521,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Thai-Zen Organic Farm And Cafe</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4520073,19.3582242,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Time cafe&bistro]]></name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4442717,19.3588432,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Earth Tone</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4505414,19.3510763,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pambok Coffee</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.3995907,19.3197087,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Dammie cafe' by บ้านมะนาว​]]></name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4495298,19.362038,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tikky Cafe‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.973225,18.8040542,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Niji Cafe‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.9819777,18.7449449,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Versailles de Flore</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9791834,18.7954085,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Valley Coffee By Lanna Resort‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.8804627,18.7576585,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Khaomao-Khaofang Imaginary Jungle‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.9435826,18.729942,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wooden Door Cafe</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9988859,18.7718866,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[English Café (Baanfarang Bakery & Café)‏]]></name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            99.1556625,18.7298779,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Celapot Café x Gallery เซลาพอต คาเฟ่ ครอส แกลลอรี่ ศิลาดล</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            99.1343879,18.8402169,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Elefin Farm & Cafe เอเลฟิน ฟาร์ม แอนด์ คาเฟ่‏‏]]></name>
+        <description>לא היינו - בית קפה עם פילים</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.8187618,18.8039803,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Montha Than Waterfall Trailhead‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.9241152,18.816797,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nimmanhaemin‏</name>
+        <description>שכונה מגניבה עם בתי קפה, סטייל פלורנטין</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.9668745,18.798569,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Monko in Pai‏</name>
+        <description><![CDATA[מקום יפייפה עם נוף ומרחבים, כייף לקפה וקערת סמוד'י]]></description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4481758,19.3643205,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Romancefarm&cafe‏]]></name>
+        <description>קפה וגלידה טובים ונוף וואו עם חווה מקסימה. כייף לשהות</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4456031,19.3828695,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LEMON THYME CAFE’</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4431362,19.3592491,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Earth Tone</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4505414,19.3510763,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dear Your Mind</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4478825,19.3624044,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>BreaktheFast</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4406714,19.3590507,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pun Pun Organic Café‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.9677576,18.7873176,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[เรื่องราว Reung-Rao Coffee & Bread]]></name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4410882,19.3577707,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>RoastBarn Coffee |โรงคั่วกาแฟโรสบาร์น</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4368396,19.3582979,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Yogu Yogu‏‏</name>
+        <description>פרוזן יוגורט טבעוני מסויה - טעים!</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4357295,19.3626739,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tribal Coffbread‏</name>
+        <description>אזור מוצל שנעים לשבת בו</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4358682,19.3625399,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Brother’s</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4508581,19.3496304,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Queue Espresso Bar</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4433259,19.3568856,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>hope.coffee</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4406843,19.3583673,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Herbal drinks coffee tea kombucha‏</name>
+        <description>נחמד לשבת בערב</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.444249,19.3587705,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Coffeestains</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4408108,19.3585959,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mae Klang Luang Coffee House‏‏</name>
+        <description>לא היינו -כפר יפה עם שדות אורז</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.5475608,18.5393038,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ON THE WAY COFFEE PAI</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4384513,19.3577021,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Skyblue at Pai camping cafe & restaurants‏]]></name>
+        <description>בית קפה מתוק וזול על גדול הנחל עם זרימה חלשה ותחת השמש ו20 מטר משם הנהר עם זרימה יותר חזקה וצל. ממש יפה וכייף</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4054684,19.4201562,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MIT FAUNG FULL‏</name>
+        <description>פתוח רק ימי חמישי, מומלץ</description>
+        <styleUrl>#icon-1534-9C27B0</styleUrl>
+        <Point>
+          <coordinates>
+            98.4414449,19.3492321,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>set sail pai cafe</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4329225,19.3433138,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Grand Canyon Water Park</name>
+        <styleUrl>#icon-1534-9C27B0-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.8919586,18.6959737,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>מסעדות </name>
+      <Placemark>
+        <name>10RAI Pai Thailand‏</name>
+        <description><![CDATA[מקום נחמד לשתות/לאכול משהו אחה"צ ערב]]></description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.4528583,19.3344404,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Northern Soul Riverside BBQ‏</name>
+        <description><![CDATA[בית קפה מסעדה יפים ומפונפנים יחסית, אחה"צ אפשר לעשות BBQ ולקחת לשבת על הנחל. ]]></description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.4450627,19.3493169,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Toast Office ปังษณีย์ สาขา ปาย‏</name>
+        <description><![CDATA[1. מסעדה מהממת גם מרחב גדול לילדים וקטנים וגם אחלה אוכל ושתיה. יש שם משחקים לילדים ופעילויות יצירה. <br>פתוחים בין 10:00-19:00]]></description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.4414747,19.3516951,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Na's Kitchen]]></name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4413768,19.3576064,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Charlie&lek]]></name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.44038,19.3572251,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>ร้านขนมจีนไทบ้านหน้าวัดพวกหงษ์</name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9814842,18.7828747,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Good Day Farm to Table‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.9968275,18.7933928,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Bom Bowls</name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4495935,19.3618134,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Good Life Dacha‏</name>
+        <description>בשבת יש שוק של תושבים</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.4429817,19.3522138,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ta thai noodle</name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9898218,18.7743022,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Khao Soy Maesai‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.9752135,18.7995989,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Hummus Chiang Mai</name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9928616,18.7891338,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>B Samcook Home16</name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9940129,18.7765554,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Khao-So-i‏</name>
+        <description>טעים ומגניב</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            99.0047285,18.8091525,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ci Xin Jai 慈心齋‏</name>
+        <description>סינית טבעונית</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.4394745,19.3570258,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Free Bird Cafe Pai‏</name>
+        <description>מסעדה טבעונית</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.4398717,19.3567835,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Two Sisters Restaurant</name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4494006,19.3616003,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Goodsouls Kitchen - Vegan Restaurant</name>
+        <styleUrl>#icon-1577-FF5252-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9820563,18.7931734,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Spices Indian Restaurant & Store‏]]></name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            99.0006524,18.7881164,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pulcinella da Stefano‏‏</name>
+        <description>לא היינו -האיטלקית האהובה עלינו</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.9939487,18.7881279,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Silhouette By Reverie Siam‏</name>
+        <description>מסעדה בריזורט, יותר יקרה מהממוצע אבל טעימה ומפנקת. יש בריזורט כניסה לנחל עם מדשאות, ממש כייף לבוא ולשהות</description>
+        <styleUrl>#icon-1577-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.4423562,19.3487116,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>טבע, גינות, תצפיות ומסלולים</name>
+      <Placemark>
+        <name>Ban Rak Thai‏</name>
+        <description>לא היינו</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            97.9425786,19.5869727,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Huai Tueng Thao</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9404039,18.8678564,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Huai Kaeo Waterfall‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.9445458,18.8118467,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[ספארי לילה בצ'אנג מאי]]></name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9173241,18.7423503,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Dantewada‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.9421174,19.1231868,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nong Buak Haad Public Park</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9793828,18.7820544,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Royal Park Rajapruek</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9280108,18.7445479,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tweechol Botanical Garden‏‏</name>
+        <description>לא היינו -גן בוטני</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            99.098232,18.857584,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Huai Tueng Thao‏</name>
+        <description>אגם עם הרבה מקומות לשבת על שפתו, יש גם אזורי רחצה ויש אזור עם פרחים ופסלי חיות ענקיים מחציר וכבשים שמתסובבות חופשי.</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.9404039,18.8678564,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>บ้านถ้ำลอด Ban Tham Lot (Lod Cave)‏‏</name>
+        <description><![CDATA[לא היינו, המלצה שמצאנו ברשת: <br>במרחק שעה מפאי, נסיעה בכבישים מפותלים בהרים דרך יפייפה! כפרים מסורתיים למרגלות ההרים והיערות. עשינו מסלול קיאקים מקסים של כ-7 ק״מ, עברנו בתוך ה Lod Caves מערות נטיפים מרשימות וגם טיילנו קצת ביער בדרך לHair Cave. 3 שעות נהדרות בטבע, רובן על הקיאקים, כל אחד מאיתנו בקיאק עם מדריך מקומי (שעשה את עבודת החתירה האמיתית). ‏Cave Lodge יצאנו דרך הגסט האוס ‏https://www.cavelodge.com/contact-us/ בפעם הבאה נבוא לכאן לכמה ימים. שקט ויפה כאן כל כך. (שימו לב שכעת הנהר נמוך יחסית והם לוקחים ילדים מגיל 5. אני חושבת שזה גבולי, כי ישנם קטעים בנהר שהם קצת מפחידים. בעונה הרטובה הנהר גועש.)]]></description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.2765606,19.5727833,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Huai Nam Dang National Park‏</name>
+        <description><![CDATA[אם אתם בעניין לקמפינג יש את Huai nam dang national park<br>אפשר לשכור שם את כל הציוד ויש גם איפה לאכול]]></description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.5988693,19.303936,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chiang Dao‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.9649024,19.3678141,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Doi Luang Chiang Dao‏</name>
+        <description>טרק - פסגה שלישית הכי גבוהה 2225 מטר - טרק של יומיים, יום למעלה ויום למטה, צריך להזמין מראש בפייסבוק של השמורה, 1000 באט כניסה. צריך להגיע יום לפני ההתחלה של המסלול. </description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.8899973,19.3969385,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chaloem Phrakiat Park‏</name>
+        <description>פארק פרחים, אנחנו היינו בפסטיבל פרחים שהיה קיטש ומתוק בו זמנית</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.9643113,18.8349272,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>למפנג</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            99.7232673,18.7440477,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pai Canyon‏‏</name>
+        <description><![CDATA[קניון שליו וציורי עם שבילי הליכה צרים על שפת הצוק, עם תצפית מרהיבה על נופי העמק.<br><br>יש מסלול מעגלי של 6 קילומטר https://www.alltrails.com/trail/thailand/mae-hong-son/pai-canyon-loop]]></description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.4525058,19.3061309,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Under the shade of bodhi tree park‏‏‏</name>
+        <description>גינה מדהימה לשהות בה</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.4429117,19.3520007,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Yun Lai Viewpoint‏‏</name>
+        <description><![CDATA[תצפית מקסימה, 20 באט כניסה. אחה"צ נעים לשבת ולשהות. ]]></description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.395388,19.3690372,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Two Huts Pai‏</name>
+        <description>תצפית</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.455268,19.322006,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Phu Pha Mok - Ban Jabo‏‏</name>
+        <description>לא היינו - יש נודלס סופ וקפה טוב בהמשך</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.205831,19.5774784,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Big Buddha Pai‏</name>
+        <description>שווה לעלות לתצפית בשקיעה</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.4561919,19.3500969,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Su Tong Pae Bridge‏</name>
+        <description>לא היינו</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            97.9541616,19.3889869,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Doi Kiew Lom Viewpoint‏</name>
+        <description>תצפית</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.3191576,19.4457839,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Doi Ang Khang</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            99.055,19.8697222,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mae Kuang Dam Viewpoint‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            99.1225023,18.9246722,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>הגנים הבוטניים של המלכה סיריקיט</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.8618687,18.8880345,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ying Yong Flower Garden‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.7995164,18.9393705,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pang Pao Beach‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.9090084,19.0773501,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Ginger Farm</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.992269,18.724474,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Doi Pui View Point‏‏</name>
+        <description><![CDATA[לא היינו -נקודת תצפית לשקיעה בהר שצמוד לצאנג' מאי]]></description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.8891733,18.8165009,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Grand Pagoda Nabhapolbhumisiri‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.4794176,18.5533969,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Startpoint Mae Yen Waterfall‏</name>
+        <description>התחלה של מסלול לצד נחל עם הרבה מקומות לשכשוך... אפשר ללכת כמה שרוצים ולחזור. מקסים!</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.4615738,19.361733,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kho Ku So Bamboo Bridge‏‏</name>
+        <description>גשר הבמבוק</description>
+        <styleUrl>#icon-1634-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.3931658,19.3225079,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Namtok Bua Tong-Nam Phu Chet Si National Park</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            99.0794909,19.0691986,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kirin Farm</name>
+        <styleUrl>#icon-1634-097138-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.8539315,18.8707323,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>משחקיה</name>
+      <Placemark>
+        <name>บ้านการ์ตูนปาย‏</name>
+        <description>משחקייה קטנה השייכת למישהי מקומית עם ילד מתוק. מתאים לקטנים בגיל (עד שנתיים בערך) וצמוד מסעדה מקומית מעולה וזולה.</description>
+        <styleUrl>#icon-1844-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            98.4405862,19.3511469,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>สวนสาธารณะ เวียงใต้‏</name>
+        <description>פארק נחמד</description>
+        <styleUrl>#icon-1844-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            98.442293,19.3516252,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Central Festival Entrance 2‏‏</name>
+        <description><![CDATA[בקניון סנטרל פסטיבל בקומה 3 יש משחקיה קטנה חינמית וליד יש מתחם חוגים נחמד שכולל גם ג׳ימבורי לתינוקות קטנטנים בתשלום.<br>בקומה 4 יש מתחם שנקרא fun city, זה משחקי וידאו, ובתוך יש ג׳ימבורי שנקרא play land.<br>מציינת מראש שלא הכי נקי ומתוחזק.<br>תדאגו להביא איתכם גרביים מהבית גם לילד/ה וגם לכם ההורים.זה חובה, ואם אין לכם תאלצו לקנות במחיר די מוגזם. ]]></description>
+        <styleUrl>#icon-1844-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            99.019649,18.8054248,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mini World‏‏‏</name>
+        <description><![CDATA[לא היינו -<br>ג׳ימבורי נוסף- מהמם! <br>נקרא mini world ונמצא במתחם יחד עם סופר Lotus.<br>זה קניון קטן, הג׳ימבורי בקומה ה2 יחד עם הסופר.<br>ממש מתאים לתינוקות. <br>מתוחזק ונקי.<br>תדאגו להביא איתכם גרביים מהבית גם לילד/ה וגם לכם ההורים.זה חובה, ואם אין לכם תאלצו לקנות במחיר די מוגזם. ]]></description>
+        <styleUrl>#icon-1844-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            98.996708,18.808888,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fun planet‏‏</name>
+        <description><![CDATA[נמצא בקניון Central Airport Plaza<br>בקומה הרביעית.<br>תדאגו להביא איתכם גרביים מהבית גם לילד/ה וגם לכם ההורים.זה חובה, ואם אין לכם תאלצו לקנות במחיר די מוגזם. ]]></description>
+        <styleUrl>#icon-1844-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            98.9750435,18.7690523,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>YuuBaan Studio‏‏</name>
+        <description>לא היינו -בית קפה משחקיה</description>
+        <styleUrl>#icon-1844-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            98.8530284,18.7750446,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>MELIA CHIANG MAI‏</name>
+        <description>מלון של הביוקר עם משחקיה של הביוקר - מהממת ויקרה 250 באט לשעה</description>
+        <styleUrl>#icon-1844-673AB7</styleUrl>
+        <Point>
+          <coordinates>
+            99.0028289,18.7854026,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Lenmaii playground & cafe เล่นมั๊ย เชียงใหม่]]></name>
+        <styleUrl>#icon-1844-673AB7-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            99.0081461,18.8816524,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>מקדשים</name>
+      <Placemark>
+        <name>Tha Phae Gate‏</name>
+        <description>nמקום היסטורי</description>
+        <styleUrl>#icon-1706-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            98.9932537,18.7877248,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wat Phra That Doi Kham‏‏</name>
+        <description>לא היינו -מקדש</description>
+        <styleUrl>#icon-1706-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            98.9186692,18.7594962,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wat Chedi Luang‏</name>
+        <description>מקדש</description>
+        <styleUrl>#icon-1706-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            98.9865804,18.7869693,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wat Phra Singh Woramahawihan‏</name>
+        <description>מקדש</description>
+        <styleUrl>#icon-1706-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            98.9819946,18.7885265,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wat Nam Hu‏</name>
+        <description>מקדש Wat Nam Hoo אשר מוקף בבריכת דגי נוי שאפשר לראות בו ציורים בודהיסטים</description>
+        <styleUrl>#icon-1706-FFD600</styleUrl>
+        <Point>
+          <coordinates>
+            98.4131775,19.3649006,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>שווקים</name>
+      <Placemark>
+        <name>Coconut Market</name>
+        <styleUrl>#icon-1640-F9A825-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            99.0101074,18.8177712,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pai Walking Street</name>
+        <styleUrl>#icon-1640-F9A825-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4423653,19.3596294,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chang Phuak Gate Night Market - Food Stalls</name>
+        <styleUrl>#icon-1640-F9A825-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.9857544,18.7958715,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Khlong Mae Kha‏</name>
+        <description>שוק ערב מקסים על הנחל</description>
+        <styleUrl>#icon-1640-F9A825</styleUrl>
+        <Point>
+          <coordinates>
+            98.9955681,18.7770657,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Warorot Market (Kad Luang)‏‏‏</name>
+        <description>שוק ענקי של הכל מהכל</description>
+        <styleUrl>#icon-1640-F9A825</styleUrl>
+        <Point>
+          <coordinates>
+            99.0009964,18.7898494,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Rim Pai Market‏</name>
+        <description>ימי רביעי בוקר</description>
+        <styleUrl>#icon-1640-F9A825</styleUrl>
+        <Point>
+          <coordinates>
+            98.4409906,19.351231,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Community Saturday morning market‏</name>
+        <description>בשבת יש שוק קהילתי- דוכנים, קרקס ואווירה. שווה להביא מחצלת או שמיכה לשבת עליה</description>
+        <styleUrl>#icon-1640-F9A825</styleUrl>
+        <Point>
+          <coordinates>
+            98.4427668,19.3520079,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>All day craft market ตลาด @บ้านข้างวัด‏</name>
+        <description>מקום מהמם- מעין כפר קטנטן עם מלא חנויות של עבודות יד ומלאכות יד, יש גם סדנאות. במרחק הליכה יש בית קפה של חתולים אם מעניין מישהו משום מה</description>
+        <styleUrl>#icon-1640-F9A825</styleUrl>
+        <Point>
+          <coordinates>
+            98.9487022,18.7763087,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>מפלים ומעיינות</name>
+      <Placemark>
+        <name>Mo Pang Waterfall‏</name>
+        <description>עם בריכה להיכנס אליה. חביב. כניסה 100 באט</description>
+        <styleUrl>#icon-1892-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.3757871,19.378833,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Tha Pai Hot Spring‏‏‏</name>
+        <description>מים חמים מאוד, יש בריכות עם מעלות שונות בכל בריכה/ 300 כניסה</description>
+        <styleUrl>#icon-1811-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.47317,19.3080849,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mueang Paeng Hot Spring</name>
+        <styleUrl>#icon-1811-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.3765619,19.1903927,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pam Bok Waterfall‏‏</name>
+        <description>5 דקות הליכה מהכביש. דעות חלוקות אם מומלץ... אומרים שהמחיר מופקע</description>
+        <styleUrl>#icon-1892-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.4051992,19.3205361,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sai Ngam hot spring‏‏</name>
+        <description>כניסה אמנם יקרה (400 באט) אבל מים לא מאוד חמים כך שמתאים גם לאמצע היום וממש נחמד ויפה שם, אנחנו נהננו :)</description>
+        <styleUrl>#icon-1811-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.3799452,19.4590854,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Nam Phu Chet Si‏‏</name>
+        <description>לא היינו -המפלים הדביקים</description>
+        <styleUrl>#icon-1892-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            99.0817881,19.0692364,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>San Kamphaeng Hot Springs‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1811-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            99.2277286,18.8163724,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pong Duet Geyser‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1811-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.6834693,19.2432905,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mok Fa Waterfall‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1892-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.7747929,19.1123077,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Wachirathan Waterfall‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1892-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.5982538,18.5420027,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sirithan Waterfall‏</name>
+        <description>לא היינו -</description>
+        <styleUrl>#icon-1892-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.5800835,18.5427521,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mae Yen Waterfall‏‏‏‏</name>
+        <description><![CDATA[לא היינו: מפל עם הליכה לא פשוטה<br>Time: 4 – 6 hrs<br><br>Difficulty: 4/5<br><br>Popularity: ✪✪✪✪✪<br><br>Elevation: Up and down <br><br>Distance: 15.2km | out & back<br>https://www.alltrails.com/trail/thailand/mae-hong-son/highway-4034-mae-yen-waterfall‏<br>‏]]></description>
+        <styleUrl>#icon-1892-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.5063847,19.3669155,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>אטרקציות/בריכה/דברים לראות</name>
+      <Placemark>
+        <name>Rai ChiwWie‏</name>
+        <description>גינת פרחים קיטש - יש בריכה, 80 באט כניסה</description>
+        <styleUrl>#icon-1701-1A237E</styleUrl>
+        <Point>
+          <coordinates>
+            98.3933502,19.3700829,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Santichon Village‏</name>
+        <description>כפר סיני, אמנם עשוי ומיועד לתיירים אבל עדיין חמוד</description>
+        <styleUrl>#icon-1706-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            98.4027162,19.3707471,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pai Hotsprings Spa Resort‏‏</name>
+        <description>בריכה של מעיין חם, יש בריכה רגילה גם - מקום מתוק. 100 באט כניסה</description>
+        <styleUrl>#icon-1811-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.4618525,19.3087161,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Doi Kiew Lom Viewpoint‏‏</name>
+        <description>לא היינו - תצפית</description>
+        <styleUrl>#icon-1523-097138</styleUrl>
+        <Point>
+          <coordinates>
+            98.3191576,19.4457839,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Sixflowers Garden‏</name>
+        <description><![CDATA[כל הכביש הזה מלא במקומות שהם מעין אטרקציה למבקרים וילדים - זה ספציפית גן עם פרחים, יש מוזיאון לחרקים, מקום עם פרפרים, מקום עם נחש, קרטינג וכו']]></description>
+        <styleUrl>#icon-1582-FF5252</styleUrl>
+        <Point>
+          <coordinates>
+            98.9076493,18.915283,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Mae Kampong Village‏‏</name>
+        <description>לא היינו - עיירה ציורית</description>
+        <styleUrl>#icon-1706-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            99.3509846,18.8655073,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Kalm Village Chiangmai‏</name>
+        <description>מרכז עיצוב ואומנות מהמם ביופיו עם בית קפה מקסים, יש חניה ליד</description>
+        <styleUrl>#icon-1706-E65100</styleUrl>
+        <Point>
+          <coordinates>
+            98.9864667,18.7833627,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Umbrella Making Centre‏‏</name>
+        <description>לא היינו -מפעל להכנת אטריות</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            99.0821284,18.764194,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Art in Paradise Chiang Mai‏‏</name>
+        <description>לא היינו -מוזיאון תלת מימד</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            99.0432217,18.7797141,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pai Massage and Training by Mr. Bann and Joy</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4401983,19.3574791,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name><![CDATA[Papa's Pedals]]></name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4391969,19.357011,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Pa Pae Meditation Retreat‏</name>
+        <description>מרכז מדיטציה, מקום יפה בטירוף, אפשר להצטרף לסדר יום של הנזירים ואפשר גם סתם לשהות שם..</description>
+        <styleUrl>#icon-1899-0288D1</styleUrl>
+        <Point>
+          <coordinates>
+            98.7107474,19.1155878,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Fluid Swimming Pool</name>
+        <styleUrl>#icon-1701-1A237E-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            98.4482577,19.3545054,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>Chinatown</name>
+        <styleUrl>#icon-1899-0288D1-nodesc</styleUrl>
+        <Point>
+          <coordinates>
+            99.000718,18.7909205,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

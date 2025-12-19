@@ -10,17 +10,27 @@ import User from './models/User.js';
 dotenv.config();
 
 // Category mapping from KML styles to our system categories
+// Pai categories mapping
 const categoryMapping = {
-  'מסעדות': 'Restaurants',
-  'משחקיות': 'Activities',
-  'חופים': 'Beaches',
-  'שווקים (בעיקר של אוכל)': 'Markets',
-  'תצפיות ומסלולים': 'Viewpoints',
-  'בתי קפה': 'Cafes',
-  'מסעדות עם בריכה': 'Restaurants',
-  'שונות': 'Other',
-  'מקומות לעבוד מהם': 'Coworking',
-  'מפלים': 'Nature'
+  'בתי קפה': 'cafe',
+  'מסעדות': 'restaurant',
+  'מסעדות ': 'restaurant', // with trailing space
+  'טבע, גינות, תצפיות ומסלולים': 'viewpoint',
+  'משחקיה': 'kids',
+  'מקדשים': 'religion',
+  'שווקים': 'market',
+  'מפלים ומעיינות': 'spring',
+  'אטרקציות/בריכה/דברים לראות': 'pool',
+  
+  // Koh Phangan categories (legacy)
+  'חופים': 'beach',
+  'שווקים (בעיקר של אוכל)': 'market',
+  'תצפיות ומסלולים': 'viewpoint',
+  'מסעדות עם בריכה': 'restaurant',
+  'שונות': 'culture',
+  'מקומות לעבוד מהם': 'workspace',
+  'מפלים': 'spring',
+  'משחקיות': 'kids'
 };
 
 async function parseKML(filePath) {
@@ -120,32 +130,16 @@ async function importKML(kmlFilePath, userId, mapTitle, mapDescription) {
             continue;
           }
 
-          // Check if point already exists (by name and similar coordinates)
-          const existingPoint = await Point.findOne({
-            title: name,
-            lat: { $gte: coords.lat - 0.001, $lte: coords.lat + 0.001 },
-            lng: { $gte: coords.lng - 0.001, $lte: coords.lng + 0.001 }
-          });
-
-          if (existingPoint) {
-            console.log(`   ✓ ${name} (exists, adding to map)`);
-            if (!personalMap.pointIds.includes(existingPoint._id)) {
-              personalMap.pointIds.push(existingPoint._id);
-            }
-            successfulPoints++;
-            continue;
-          }
-
           // Create new point
           const point = new Point({
             title: name,
-            description: description || `המלצה מקו פאנגן - ${folderName}`,
+            description: description || `המלצה מ-${folderName}`,
             category: category,
             lat: coords.lat,
             lng: coords.lng,
             images: [],
             createdBy: userId,
-            isPrivate: true, // Private by default for imported points
+            isPrivate: false, // Public points for main map
             language: 'he',
             status: 'approved'
           });
