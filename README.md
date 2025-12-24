@@ -116,10 +116,6 @@ NomadLand היא פלטפורמה אינטראקטיבית המיועדת לנו
 - JWT tokens עם תוקף מוגבל
 - ולידציות קפדניות (Regex לסיסמאות)
 
-#### רב-לשוניות
-- תמיכה בעברית ואנגלית
-- ממשק להחלפת שפה
-
 ---
 
 ## 📦 התקנה והרצה
@@ -154,44 +150,57 @@ cd client
 npm install
 ```
 
-### שלב 3: הגדרת משתני סביבה
+### שלב 3: הגדרת משתני סביבה ⚙️
+
+**חשוב מאוד!** קובץ `.env` לא נמצא ב-Git מסיבות אבטחה. יש ליצור אותו ידנית.
 
 #### Server (.env)
-צור קובץ `.env` בתיקיית `server` עם התוכן הבא:
+1. עבור לתיקיית `server`
+2. העתק את הקובץ `.env.example` ושנה את שמו ל-`.env`:
+   ```bash
+   cd server
+   cp .env.example .env
+   ```
+   (ב-Windows: `copy .env.example .env`)
+
+3. פתח את הקובץ `.env` וערוך את הערכים הבאים:
 
 ```env
-# MongoDB
-MONGODB_URI=your_mongodb_connection_string
+# MongoDB Atlas Connection String
+# קבל את ה-connection string מ-MongoDB Atlas
+# ודא שהוספת את ה-IP Address 0.0.0.0/0 ב-Network Access
+MONGO_URI=mongodb+srv://doraloni_db_user:1020302010@cluster0.aoe8vhp.mongodb.net/nomadland?retryWrites=true&w=majority&appName=Cluster0
 
-# JWT
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRES_IN=24h
+# JWT Secret - מפתח סודי להצפנת טוקנים
+# השתמש במחרוזת אקראית וחזקה
+JWT_SECRET=fj392jj_883kskSLA!@330-02kd92K
 
-# Cloudinary
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-
-# Google OAuth
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-
-# Email (Nodemailer)
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASSWORD=your_app_password
-
-# Server
+# Port - פורט הרצת השרת
 PORT=5000
-NODE_ENV=development
+
+# Cloudinary Configuration - שירות אחסון תמונות
+# קבל את הפרטים מ-https://cloudinary.com/console
+CLOUDINARY_CLOUD_NAME=duy7hc3wf
+CLOUDINARY_API_KEY=967627795712814
+CLOUDINARY_API_SECRET=o9depCXqDEvJ7lXEiNG3O1HDqPI
+
+# Google OAuth Client ID
+# (אופציונלי - לא חובה לבדיקה הראשונית)
+GOOGLE_CLIENT_ID=your_google_client_id_here
+
+# Email Configuration
+# (אופציונלי - אם לא מוגדר, המערכת תשתמש ב-Ethereal test service)
+# EMAIL_HOST=smtp.gmail.com
+# EMAIL_PORT=587
+# EMAIL_USER=your-email@gmail.com
+# EMAIL_PASS=your-app-password
+
+# Client URL - כתובת ה-Frontend
+CLIENT_URL=http://localhost:5173
 ```
 
 #### Client (.env)
-צור קובץ `.env` בתיקיית `client` עם התוכן הבא:
-
-```env
-VITE_API_URL=http://localhost:5000/api
-VITE_GOOGLE_CLIENT_ID=your_google_client_id
-```
+הצד לקוח לא דורש קובץ `.env` - כל ההגדרות מוגדרות בקוד.
 
 ### שלב 4: הרצת הפרויקט
 
@@ -401,18 +410,6 @@ nomadland-fullstack-finalproject/
 - [x] מערכת Reviews
 - [x] מערכת Events
 - [x] מפות אישיות
-
----
-
-## 🤝 תרומה ופיתוח עתידי
-
-רעיונות לפיתוח עתידי:
-- הוספת צ'אט בין משתמשים
-- התראות Push
-- אפליקציית מובייל נטיבית
-- אינטגרציה עם API של Booking.com
-- המלצות מבוססות AI
-- שיתוף למדיה חברתית
 
 ---
 
