@@ -43,3 +43,6 @@ client/dist/
 # Temporary files
 *.tmp
 *.temp
+
+# Internal documentation - not for submission
+RESPONSE_TO_REVIEWER.md
