@@ -20,7 +20,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-const EventDetailsModal = ({ event, onClose, onShowOnMap, region, onEventDeleted }) => {
+const EventDetailsModal = ({ event, onClose, onShowOnMap, region, onEventDeleted, onEdit }) => {
   const { user } = useAuth();
   const [deleting, setDeleting] = useState(false);
   const [rsvpCount, setRsvpCount] = useState(event.rsvps?.length || 0);
@@ -33,9 +33,6 @@ const EventDetailsModal = ({ event, onClose, onShowOnMap, region, onEventDeleted
   const alertDialog = useAlert();
 
   if (!event) return null;
-
-  console.log('EventDetailsModal - event:', event);
-  console.log('EventDetailsModal - region:', region);
 
   const handleDelete = async () => {
     const confirmed = await confirmDialog.confirm({
@@ -73,6 +70,7 @@ const EventDetailsModal = ({ event, onClose, onShowOnMap, region, onEventDeleted
   const isOwner = user && event.createdBy && event.createdBy._id === user.id;
   const isAdmin = user && user.role === 'admin';
   const canDelete = isOwner || isAdmin;
+  const canEdit = isOwner; // Only owner can edit their event
 
   const handleRSVP = async () => {
     if (!user) {
@@ -171,6 +169,17 @@ const EventDetailsModal = ({ event, onClose, onShowOnMap, region, onEventDeleted
         <button className="modal-close-btn-top" onClick={onClose}>
           <span className="material-symbols-outlined">close</span>
         </button>
+
+        {/* Edit Button - Only for owner */}
+        {canEdit && onEdit && (
+          <button 
+            className="modal-edit-btn-top" 
+            onClick={() => onEdit(event)}
+            title="Edit Event"
+          >
+            <span className="material-symbols-outlined">edit</span>
+          </button>
+        )}
 
         {/* Delete Button - Only for owner or admin */}
         {canDelete && (
@@ -444,6 +453,7 @@ EventDetailsModal.propTypes = {
   onClose: PropTypes.func.isRequired,
   onShowOnMap: PropTypes.func,
   onEventDeleted: PropTypes.func,
+  onEdit: PropTypes.func,
   region: PropTypes.object
 };
 

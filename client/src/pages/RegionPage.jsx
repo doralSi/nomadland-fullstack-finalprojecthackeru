@@ -22,6 +22,7 @@ const RegionPage = () => {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [showEventDetails, setShowEventDetails] = useState(false);
   const [showAddEventModal, setShowAddEventModal] = useState(false);
+  const [editingEvent, setEditingEvent] = useState(null);
   const [eventToShowOnMap, setEventToShowOnMap] = useState(null);
   const mapRef = useRef(null);
 
@@ -96,12 +97,20 @@ const RegionPage = () => {
   };
 
   const handleAddEvent = () => {
+    setEditingEvent(null);
     setShowAddEventModal(true);
   };
 
   const handleEventCreated = () => {
     setShowAddEventModal(false);
+    setEditingEvent(null);
     loadEvents(); // Refresh events
+  };
+
+  const handleEditEvent = (event) => {
+    setEditingEvent(event);
+    setShowAddEventModal(true);
+    setShowEventDetails(false);
   };
 
   if (loading) {
@@ -168,14 +177,20 @@ const RegionPage = () => {
           onClose={() => setShowEventDetails(false)}
           onShowOnMap={handleShowEventOnMap}
           onEventDeleted={loadEvents}
+          onEdit={handleEditEvent}
         />
       )}
 
       {showAddEventModal && (
         <AddEventModal
           region={currentRegion}
-          onClose={() => setShowAddEventModal(false)}
+          onClose={() => {
+            setShowAddEventModal(false);
+            setEditingEvent(null);
+          }}
           onSuccess={handleEventCreated}
+          editMode={!!editingEvent}
+          eventData={editingEvent}
         />
       )}
     </div>

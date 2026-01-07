@@ -24,19 +24,19 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Rate limiting
-// General rate limiter: 100 requests per 15 minutes
+// General rate limiter: 1000 requests per 15 minutes (increased for development)
 const generalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Max 100 requests per windowMs
+  max: 1000, // Max 1000 requests per windowMs
   message: { message: 'Too many requests from this IP, please try again after 15 minutes.' },
   standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
-// Strict rate limiter for auth routes: 5 requests per 15 minutes
+// Strict rate limiter for auth routes: 20 requests per 15 minutes (increased for development)
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // Max 5 requests per windowMs
+  max: 20, // Max 20 requests per windowMs
   message: { message: 'Too many authentication attempts from this IP, please try again after 15 minutes.' },
   standardHeaders: true,
   legacyHeaders: false,

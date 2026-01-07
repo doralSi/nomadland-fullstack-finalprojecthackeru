@@ -17,12 +17,38 @@ const PointSidePanel = ({
   onDelete = null,
   showOnlyUserReview = false,
   userReviewId = null,
-  onDeleteReview = null
+  onDeleteReview = null,
+  onEdit = null
 }) => {
   const { user } = useAuth();
   const [reviews, setReviews] = useState([]);
   const [showReviewForm, setShowReviewForm] = useState(false);
+  const [editingReview, setEditingReview] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  // Check if user can edit this point
+  const canEditPoint = () => {
+    if (!user || !point) return false;
+
+    // Admin can edit any point
+    if (user.role === 'admin') return true;
+
+    // Map Ranger can edit points in their assigned regions
+    if (user.role === 'mapRanger' && user.rangerRegions?.includes(point.regionSlug)) {
+      return true;
+    }
+
+    // Regular user can only edit their own private points
+    if (point.createdBy?._id === user.id || point.createdBy === user.id) {
+      // For regular users, only allow editing private points
+      if (user.role === 'user') {
+        return point.isPrivate === true;
+      }
+      return true;
+    }
+
+    return false;
+  };
 
   useEffect(() => {
     if (point) {
@@ -35,7 +61,7 @@ const PointSidePanel = ({
     
     try {
       setLoading(true);
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/reviews/${point._id}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/reviews/point/${point._id}`);
       const data = await response.json();
       console.log('📝 Reviews received:', data);
       console.log('📝 First review userId:', data[0]?.userId);
@@ -56,7 +82,17 @@ const PointSidePanel = ({
 
   const handleReviewAdded = () => {
     setShowReviewForm(false);
+    setEditingReview(null);
     fetchReviews();
+  };
+
+  const handleReviewEdit = (review) => {
+    setEditingReview(review);
+    setShowReviewForm(false);
+  };
+
+  const handleCancelReviewEdit = () => {
+    setEditingReview(null);
   };
 
   const handleReviewDeleted = () => {
@@ -187,6 +223,17 @@ const PointSidePanel = ({
 
           {/* Action Buttons */}
           <div className="panel-actions">
+            {/* Edit Point - only if user has permission */}
+            {user && canEditPoint() && onEdit && (
+              <button 
+                className="action-btn primary"
+                onClick={() => onEdit(point)}
+              >
+                <span className="material-symbols-outlined">edit</span>
+                Edit Point
+              </button>
+            )}
+            
             {/* Favorite/Remove Favorite - only if onToggleFavorite is provided */}
             {user && onToggleFavorite && (
               <button 
@@ -225,13 +272,27 @@ const PointSidePanel = ({
         </div>
 
         {/* Review Form */}
-        {showReviewForm && user && (
+        {showReviewForm && user && !editingReview && (
           <div className="panel-review-form">
             <h3>Write a Review</h3>
             <ReviewForm
               pointId={point._id}
               onReviewAdded={handleReviewAdded}
               onCancel={() => setShowReviewForm(false)}
+            />
+          </div>
+        )}
+
+        {/* Edit Review Form */}
+        {editingReview && user && (
+          <div className="panel-review-form">
+            <h3>Edit Your Review</h3>
+            <ReviewForm
+              pointId={point._id}
+              onReviewAdded={handleReviewAdded}
+              onCancel={handleCancelReviewEdit}
+              editMode={true}
+              reviewData={editingReview}
             />
           </div>
         )}
@@ -255,6 +316,7 @@ const PointSidePanel = ({
                 currentUserId={user?.id}
                 isAdmin={user?.role === 'admin'}
                 onReviewDeleted={handleReviewDeleted}
+                onReviewEdit={handleReviewEdit}
               />
             )}
           </div>

@@ -10,6 +10,7 @@ import { MapViewController } from '../components/map/MapHelpers';
 import { toast } from 'react-toastify';
 import '../utils/leafletConfig';
 import PointSidePanel from '../components/PointSidePanel';
+import AddPointModal from '../components/AddPointModal';
 import RegionHero from '../components/RegionHero';
 import axiosInstance from '../api/axiosInstance';
 import { useConfirm } from '../hooks/useConfirm';
@@ -29,6 +30,7 @@ const PersonalRegionMap = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [editingPoint, setEditingPoint] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [editingReview, setEditingReview] = useState(null);
   const [selectedPoint, setSelectedPoint] = useState(null);
   const [mapInstance, setMapInstance] = useState(null);
@@ -88,6 +90,7 @@ const PersonalRegionMap = () => {
         message: 'Point updated successfully'
       });
       setEditingPoint(null);
+      setShowEditModal(false);
       fetchRegionData();
     } catch (err) {
       console.error('Error updating point:', err);
@@ -97,6 +100,23 @@ const PersonalRegionMap = () => {
         message: err.response?.data?.message || 'Failed to update point'
       });
     }
+  };
+
+  const openEditModal = (point) => {
+    setEditingPoint(point);
+    setShowEditModal(true);
+    setSelectedPoint(null);
+  };
+
+  const closeEditModal = () => {
+    setEditingPoint(null);
+    setShowEditModal(false);
+  };
+
+  const handlePointUpdated = () => {
+    setEditingPoint(null);
+    setShowEditModal(false);
+    fetchRegionData();
   };
 
   const handleRemoveFromFavorites = async (pointId) => {
@@ -364,6 +384,7 @@ const PersonalRegionMap = () => {
                 ? () => handleDeleteReview(reviewedPoints.find(p => p._id === selectedPoint._id)?.userReview?._id)
                 : null
             }
+            onEdit={openEditModal}
           />
         )}
         </div>
@@ -503,6 +524,18 @@ const PersonalRegionMap = () => {
             </form>
           </div>
         </div>
+      )}
+
+      {/* Edit Point Modal using AddPointModal */}
+      {showEditModal && editingPoint && (
+        <AddPointModal
+          location={{ lat: editingPoint.lat, lng: editingPoint.lng }}
+          regionSlug={regionSlug}
+          onClose={closeEditModal}
+          onSuccess={handlePointUpdated}
+          editMode={true}
+          pointData={editingPoint}
+        />
       )}
     </div>
   );

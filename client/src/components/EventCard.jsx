@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './EventCard.css';
 
-const EventCard = ({ event, mode = 'daily', onClick }) => {
+const EventCard = ({ event, mode = 'daily', onClick, onEdit }) => {
   const formatTime = (timeString) => {
     return timeString;
   };
@@ -96,7 +96,8 @@ EventCard.propTypes = {
     })
   }).isRequired,
   mode: PropTypes.oneOf(['daily', 'weekly']),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  onEdit: PropTypes.func
 };
 
 export default EventCard;

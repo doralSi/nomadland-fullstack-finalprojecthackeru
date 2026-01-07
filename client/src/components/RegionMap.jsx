@@ -28,6 +28,7 @@ const RegionMap = ({ region, selectedCategories = [], eventToShow = null }) => {
   const [isAddingPoint, setIsAddingPoint] = useState(false);
   const [showAddPointModal, setShowAddPointModal] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [editingPoint, setEditingPoint] = useState(null);
   const [error, setError] = useState(null);
   const [mapInstance, setMapInstance] = useState(null);
   const [selectedPoint, setSelectedPoint] = useState(null);
@@ -124,12 +125,21 @@ const RegionMap = ({ region, selectedCategories = [], eventToShow = null }) => {
     setShowAddPointModal(false);
     setSelectedLocation(null);
     setIsAddingPoint(false);
+    setEditingPoint(null);
+  };
+
+  const handleEditPoint = (point) => {
+    setEditingPoint(point);
+    setSelectedLocation({ lat: point.lat, lng: point.lng });
+    setShowAddPointModal(true);
+    setSelectedPoint(null);
   };
 
   const handlePointCreated = () => {
     setShowAddPointModal(false);
     setSelectedLocation(null);
     setIsAddingPoint(false);
+    setEditingPoint(null);
     loadPoints(); // Refresh points
   };
 
@@ -140,7 +150,7 @@ const RegionMap = ({ region, selectedCategories = [], eventToShow = null }) => {
   const handleViewReviews = async (point) => {
     setSelectedPoint(point);
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/reviews/${point._id}`);
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/reviews/point/${point._id}`);
       const data = await response.json();
       setPointReviews(data);
       setShowReviewModal(true);
@@ -391,6 +401,7 @@ const RegionMap = ({ region, selectedCategories = [], eventToShow = null }) => {
             onClose={() => setSelectedPoint(null)}
             onToggleFavorite={handleToggleFavorite}
             isFavorite={favoritePoints.includes(selectedPoint._id)}
+            onEdit={handleEditPoint}
           />
         )}
 
@@ -416,6 +427,8 @@ const RegionMap = ({ region, selectedCategories = [], eventToShow = null }) => {
           regionSlug={region.slug}
           onClose={handleCloseModal}
           onSuccess={handlePointCreated}
+          editMode={!!editingPoint}
+          pointData={editingPoint}
         />
       )}
 
@@ -552,7 +565,7 @@ const ReviewFormInline = ({ pointId, onSuccess, onCancel }) => {
     setSubmitting(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/reviews/${pointId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/reviews/point/${pointId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

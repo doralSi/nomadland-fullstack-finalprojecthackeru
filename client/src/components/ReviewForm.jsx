@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axiosInstance from '../api/axiosInstance';
 import { toast } from 'react-toastify';
 import './ReviewForm.css';
 
-const ReviewForm = ({ pointId, onReviewAdded, onCancel, requiredLanguage = 'he' }) => {
+const ReviewForm = ({ pointId, onReviewAdded, onCancel, requiredLanguage = 'he', editMode = false, reviewData = null }) => {
   const [formData, setFormData] = useState({
     text: '',
     ratingOverall: 5,
@@ -14,6 +14,20 @@ const ReviewForm = ({ pointId, onReviewAdded, onCancel, requiredLanguage = 'he' 
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+
+  // Initialize form data when in edit mode
+  useEffect(() => {
+    if (editMode && reviewData) {
+      setFormData({
+        text: reviewData.text || '',
+        ratingOverall: reviewData.ratingOverall || 5,
+        ratingPrice: reviewData.ratingPrice || 3,
+        ratingAccessibilityArrival: reviewData.ratingAccessibilityArrival || 3,
+        ratingAccessibilityDisability: reviewData.ratingAccessibilityDisability || 3,
+        language: reviewData.language || requiredLanguage
+      });
+    }
+  }, [editMode, reviewData, requiredLanguage]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,19 +49,28 @@ const ReviewForm = ({ pointId, onReviewAdded, onCancel, requiredLanguage = 'he' 
 
     try {
       setLoading(true);
-      const response = await axiosInstance.post(`/reviews/${pointId}`, formData);
-      toast.success('Review submitted successfully!');
-      onReviewAdded(response.data);
-      setFormData({
-        text: '',
-        ratingOverall: 5,
-        ratingPrice: 3,
-        ratingAccessibilityArrival: 3,
-        ratingAccessibilityDisability: 3,
-        language: requiredLanguage
-      });
+      
+      if (editMode && reviewData) {
+        // Update existing review
+        const response = await axiosInstance.put(`/reviews/${reviewData._id}`, formData);
+        toast.success('Review updated successfully!');
+        onReviewAdded(response.data);
+      } else {
+        // Create new review
+        const response = await axiosInstance.post(`/reviews/point/${pointId}`, formData);
+        toast.success('Review submitted successfully!');
+        onReviewAdded(response.data);
+        setFormData({
+          text: '',
+          ratingOverall: 5,
+          ratingPrice: 3,
+          ratingAccessibilityArrival: 3,
+          ratingAccessibilityDisability: 3,
+          language: requiredLanguage
+        });
+      }
     } catch (err) {
-      const errorMsg = err.response?.data?.message || 'Failed to submit review';
+      const errorMsg = err.response?.data?.message || `Failed to ${editMode ? 'update' : 'submit'} review`;
       setError(errorMsg);
       toast.error(errorMsg);
     } finally {
@@ -77,7 +100,7 @@ const ReviewForm = ({ pointId, onReviewAdded, onCancel, requiredLanguage = 'he' 
 
   return (
     <div className="review-form-container">
-      <h3>Write Your Review</h3>
+      <h3>{editMode ? 'Edit Your Review' : 'Write Your Review'}</h3>
       <form onSubmit={handleSubmit} className="review-form">
         {error && <div className="error-message">{error}</div>}
 
@@ -110,7 +133,7 @@ const ReviewForm = ({ pointId, onReviewAdded, onCancel, requiredLanguage = 'he' 
             Cancel
           </button>
           <button type="submit" className="btn btn-primary" disabled={loading}>
-            {loading ? 'Submitting...' : 'Submit Review'}
+            {loading ? (editMode ? 'Updating...' : 'Submitting...') : (editMode ? 'Update Review' : 'Submit Review')}
           </button>
         </div>
       </form>

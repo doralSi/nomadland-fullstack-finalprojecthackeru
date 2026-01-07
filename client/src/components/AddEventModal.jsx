@@ -1,13 +1,13 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MapContainer, TileLayer, Polygon, Marker, useMapEvents } from 'react-leaflet';
-import { createEvent } from '../api/events';
+import { createEvent, updateEvent } from '../api/events';
 import { isPointInsidePolygon, polygonToLeafletFormat } from '../utils/isInsidePolygon';
 import axiosInstance from '../api/axiosInstance';
 import '../utils/leafletConfig';
 import 'leaflet/dist/leaflet.css';
 import './AddEventModal.css';
 
-const AddEventModal = ({ region, onClose, onSuccess }) => {
+const AddEventModal = ({ region, onClose, onSuccess, editMode = false, eventData = null }) => {
   // Get center coordinates - support both array and object formats
   const getCenterCoords = () => {
     if (!region?.center) return [0, 0];
@@ -43,16 +43,60 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
   const [error, setError] = useState('');
   const fileInputRef = useRef(null);
 
-  // Debug: Check region data
-  console.log('Region data:', region);
-  console.log('Region polygon:', region?.polygon);
-  console.log('Region polygon length:', region?.polygon?.length);
-  console.log('Region polygon first item:', region?.polygon?.[0]);
-  console.log('Region center:', region?.center);
-  console.log('Region center type:', typeof region?.center);
-  console.log('Region center lat:', region?.center?.lat);
-  console.log('Region center lng:', region?.center?.lng);
-  console.log('centerCoords:', centerCoords);
+  // Initialize form data when in edit mode
+  useEffect(() => {
+    if (editMode && eventData) {
+      // Handle both old format (date) and new format (startDate/endDate)
+      const dateStr = eventData.startDate || eventData.date;
+      const endDateStr = eventData.endDate || eventData.date;
+      
+      let startDateFormatted = '';
+      let endDateFormatted = '';
+      
+      try {
+        if (dateStr) {
+          const eventStart = new Date(dateStr);
+          if (!isNaN(eventStart.getTime())) {
+            startDateFormatted = eventStart.toISOString().split('T')[0];
+          }
+        }
+        
+        if (endDateStr) {
+          const eventEnd = new Date(endDateStr);
+          if (!isNaN(eventEnd.getTime())) {
+            endDateFormatted = eventEnd.toISOString().split('T')[0];
+          }
+        }
+      } catch (err) {
+        console.error('Error parsing dates:', err);
+      }
+      
+      const eventTime = eventData.time || '12:00';
+      const [hour, minute] = eventTime.split(':');
+      
+      const centerLat = region?.center?.lat || (Array.isArray(region?.center) ? region.center[0] : 0);
+      const centerLng = region?.center?.lng || (Array.isArray(region?.center) ? region.center[1] : 0);
+      
+      setFormData({
+        title: eventData.title || '',
+        description: eventData.description || '',
+        cost: eventData.cost || '',
+        startDate: startDateFormatted,
+        endDate: endDateFormatted,
+        hour: hour || '12',
+        minute: minute || '00',
+        duration: '1',
+        isAllDay: !eventData.time,
+        repeat: eventData.repeat || 'none',
+        lat: eventData.location?.lat || centerLat || '',
+        lng: eventData.location?.lng || centerLng || ''
+      });
+      
+      if (eventData.imageUrl) {
+        setImagePreview(eventData.imageUrl);
+      }
+    }
+  }, [editMode, eventData, region]);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -143,9 +187,6 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
     setError('');
     setLoading(true);
 
-    console.log('🚀 Starting event creation...');
-    console.log('Form data:', formData);
-
     try {
       // Validate dates
       const start = new Date(formData.startDate);
@@ -166,23 +207,24 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
 
       let imageUrl = '';
       if (imageFile) {
-        console.log('📤 Uploading image...');
         try {
           imageUrl = await uploadImage();
-          console.log('✅ Image uploaded:', imageUrl);
         } catch (err) {
-          console.error('❌ Image upload failed:', err);
+          console.error('Image upload failed:', err);
           setError('Failed to upload image. Please try again.');
           setLoading(false);
           return;
         }
+      } else if (editMode && imagePreview) {
+        // If editing and no new image, keep the existing one
+        imageUrl = imagePreview;
       }
 
       // Multi-day events or all-day events don't need time
       const isMultiDay = formData.startDate !== formData.endDate;
       const time = (formData.isAllDay || isMultiDay) ? null : `${formData.hour}:00`;
 
-      const eventData = {
+      const eventPayload = {
         title: formData.title,
         description: formData.description,
         cost: formData.cost || 'Free',
@@ -200,15 +242,17 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
         language: 'en', // Default to English for now
         imageUrl: imageUrl
       };
-
-      console.log('📝 Event data to send:', eventData);
-      const result = await createEvent(eventData);
-      console.log('✅ Event created successfully:', result);
+      
+      if (editMode && eventData) {
+        await updateEvent(eventData.templateId, eventPayload);
+      } else {
+        await createEvent(eventPayload);
+      }
+      
       onSuccess();
     } catch (err) {
-      console.error('❌ Event creation failed:', err);
-      console.error('Error response:', err.response?.data);
-      setError(err.response?.data?.message || 'Failed to create event');
+      console.error('Event operation failed:', err);
+      setError(err.response?.data?.message || `Failed to ${editMode ? 'update' : 'create'} event`);
     } finally {
       setLoading(false);
     }
@@ -218,7 +262,7 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-card event-modal" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>Add New Event</h2>
+          <h2>{editMode ? 'Edit Event' : 'Add New Event'}</h2>
           <button className="modal-close-btn" onClick={onClose}>
             <span className="material-symbols-outlined">close</span>
           </button>
@@ -452,7 +496,10 @@ const AddEventModal = ({ region, onClose, onSuccess }) => {
               className="btn-primary"
               disabled={loading}
             >
-              {loading ? 'Creating...' : 'Create Event'}
+              {loading 
+                ? (editMode ? 'Updating...' : 'Creating...') 
+                : (editMode ? 'Update Event' : 'Create Event')
+              }
             </button>
           </div>
         </form>

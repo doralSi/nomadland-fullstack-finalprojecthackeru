@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { createPoint } from '../api/points';
+import React, { useState, useEffect } from 'react';
+import { createPoint, updatePoint } from '../api/points';
 import { CATEGORIES } from '../constants/categories';
 import { toast } from 'react-toastify';
 import './AddPointModal.css';
 
-const AddPointModal = ({ location, regionSlug, onClose, onSuccess }) => {
+const AddPointModal = ({ location, regionSlug, onClose, onSuccess, editMode = false, pointData = null }) => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -13,6 +13,18 @@ const AddPointModal = ({ location, regionSlug, onClose, onSuccess }) => {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  // Initialize form data when in edit mode
+  useEffect(() => {
+    if (editMode && pointData) {
+      setFormData({
+        title: pointData.title || '',
+        description: pointData.description || '',
+        category: pointData.category || CATEGORIES[0].key,
+        isPrivate: pointData.isPrivate || false
+      });
+    }
+  }, [editMode, pointData]);
 
   const handleChange = (e) => {
     setFormData({
@@ -27,19 +39,25 @@ const AddPointModal = ({ location, regionSlug, onClose, onSuccess }) => {
     setLoading(true);
 
     try {
-      const pointData = {
-        ...formData,
-        lat: location.lat,
-        lng: location.lng,
-        regionSlug: regionSlug,
-        language: 'en' // Default to English for now
-      };
-
-      await createPoint(pointData);
-      toast.success('Point created successfully!');
+      if (editMode && pointData) {
+        // Update existing point
+        await updatePoint(pointData._id, formData);
+        toast.success('Point updated successfully!');
+      } else {
+        // Create new point
+        const newPointData = {
+          ...formData,
+          lat: location.lat,
+          lng: location.lng,
+          regionSlug: regionSlug,
+          language: 'en' // Default to English for now
+        };
+        await createPoint(newPointData);
+        toast.success('Point created successfully!');
+      }
       onSuccess();
     } catch (err) {
-      const errorMsg = err.response?.data?.message || 'Failed to create point';
+      const errorMsg = err.response?.data?.message || `Failed to ${editMode ? 'update' : 'create'} point`;
       setError(errorMsg);
       toast.error(errorMsg);
     } finally {
@@ -51,7 +69,7 @@ const AddPointModal = ({ location, regionSlug, onClose, onSuccess }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h2>Add New Point</h2>
+          <h2>{editMode ? 'Edit Point' : 'Add New Point'}</h2>
           <button className="modal-close-btn" onClick={onClose}>
             <span className="material-symbols-outlined">close</span>
           </button>
@@ -121,7 +139,10 @@ const AddPointModal = ({ location, regionSlug, onClose, onSuccess }) => {
             <div className="location-info">
               <span className="material-symbols-outlined">location_on</span>
               <span>
-                Lat: {location.lat.toFixed(6)}, Lng: {location.lng.toFixed(6)}
+                {editMode && pointData 
+                  ? `Lat: ${pointData.lat.toFixed(6)}, Lng: ${pointData.lng.toFixed(6)}`
+                  : `Lat: ${location.lat.toFixed(6)}, Lng: ${location.lng.toFixed(6)}`
+                }
               </span>
             </div>
           </div>
@@ -140,15 +161,17 @@ const AddPointModal = ({ location, regionSlug, onClose, onSuccess }) => {
               className="btn-primary"
               disabled={loading}
             >
-              {loading ? 'Creating...' : 'Create Point'}
+              {loading ? (editMode ? 'Updating...' : 'Creating...') : (editMode ? 'Update Point' : 'Create Point')}
             </button>
           </div>
         </form>
 
-        <div className="modal-info">
-          <span className="material-symbols-outlined">info</span>
-          <p>Your point will be reviewed by moderators before appearing on the map.</p>
-        </div>
+        {!editMode && (
+          <div className="modal-info">
+            <span className="material-symbols-outlined">info</span>
+            <p>Your point will be reviewed by moderators before appearing on the map.</p>
+          </div>
+        )}
       </div>
     </div>
   );

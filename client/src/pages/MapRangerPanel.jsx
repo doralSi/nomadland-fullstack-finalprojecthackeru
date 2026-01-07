@@ -4,6 +4,7 @@ import { useRegion } from "../context/RegionContext";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 import PointSidePanel from "../components/PointSidePanel";
+import AddPointModal from "../components/AddPointModal";
 import EventDetailsModal from "../components/EventDetailsModal";
 import PointsTable from "../components/admin/PointsTable";
 import EventsTable from "../components/admin/EventsTable";
@@ -43,6 +44,8 @@ const MapRangerPanel = () => {
   const [pointsCategoryFilter, setPointsCategoryFilter] = useState("");
   const [pointsStatusFilter, setPointsStatusFilter] = useState("");
   const [selectedPointForView, setSelectedPointForView] = useState(null);
+  const [editingPoint, setEditingPoint] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(false);
   
   // Events tab
   const [events, setEvents] = useState([]);
@@ -109,6 +112,23 @@ const MapRangerPanel = () => {
     eventsStartDate,
     eventsEndDate,
   ]);
+
+  const handleEditPoint = (point) => {
+    setEditingPoint(point);
+    setShowEditModal(true);
+    setSelectedPointForView(null);
+  };
+
+  const handleCloseEditModal = () => {
+    setEditingPoint(null);
+    setShowEditModal(false);
+  };
+
+  const handlePointUpdated = () => {
+    setEditingPoint(null);
+    setShowEditModal(false);
+    loadPoints();
+  };
 
   const loadStats = async () => {
     try {
@@ -461,6 +481,7 @@ const MapRangerPanel = () => {
               onClose={() => setSelectedPointForView(null)}
               onToggleFavorite={() => {}}
               isFavorite={false}
+              onEdit={handleEditPoint}
             />
           </div>
         </div>
@@ -477,6 +498,18 @@ const MapRangerPanel = () => {
             setSelectedEventForView(null);
             loadData();
           }}
+        />
+      )}
+
+      {/* Edit Point Modal */}
+      {showEditModal && editingPoint && (
+        <AddPointModal
+          location={{ lat: editingPoint.lat, lng: editingPoint.lng }}
+          regionSlug={editingPoint.regionSlug}
+          onClose={handleCloseEditModal}
+          onSuccess={handlePointUpdated}
+          editMode={true}
+          pointData={editingPoint}
         />
       )}
     </div>

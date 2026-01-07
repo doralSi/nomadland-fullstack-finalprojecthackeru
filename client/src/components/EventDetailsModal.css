@@ -111,6 +111,35 @@
   font-size: 24px;
 }
 
+/* Edit Button */
+.modal-edit-btn-top {
+  position: absolute;
+  top: 16px;
+  right: 124px;
+  width: 44px;
+  height: 44px;
+  background: rgba(37, 99, 235, 0.9);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+.modal-edit-btn-top:hover {
+  background: rgba(29, 78, 216, 1);
+  transform: scale(1.1);
+}
+
+.modal-edit-btn-top .material-symbols-outlined {
+  font-size: 24px;
+}
+
 /* Hero Image - Large at Top */
 .event-modal-image {
   width: 100%;

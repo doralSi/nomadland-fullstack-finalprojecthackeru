@@ -168,3 +168,63 @@ export const deleteReview = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
 };
+
+// Update a review (only owner)
+export const updateReview = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userId = req.user.id;
+    const { text, ratingOverall, ratingPrice, ratingAccessibilityArrival, ratingAccessibilityDisability } = req.body;
+
+    // Validate required fields
+    if (!text || !ratingOverall || !ratingPrice || !ratingAccessibilityArrival || !ratingAccessibilityDisability) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    // Validate text length
+    if (text.length < 5) {
+      return res.status(400).json({ message: 'Review text must be at least 5 characters' });
+    }
+
+    // Validate ratings are between 1-5
+    const ratings = [ratingOverall, ratingPrice, ratingAccessibilityArrival, ratingAccessibilityDisability];
+    const allRatingsValid = ratings.every(rating => rating >= 1 && rating <= 5);
+    
+    if (!allRatingsValid) {
+      return res.status(400).json({ message: 'All ratings must be between 1 and 5' });
+    }
+
+    const review = await Review.findById(id);
+
+    if (!review) {
+      return res.status(404).json({ message: 'Review not found' });
+    }
+
+    // Check if user is the owner
+    if (review.userId.toString() !== userId) {
+      return res.status(403).json({ message: 'Not authorized to edit this review' });
+    }
+
+    // Update review fields
+    review.text = text;
+    review.ratingOverall = ratingOverall;
+    review.ratingPrice = ratingPrice;
+    review.ratingAccessibilityArrival = ratingAccessibilityArrival;
+    review.ratingAccessibilityDisability = ratingAccessibilityDisability;
+
+    await review.save();
+    await review.populate('userId', 'name email');
+
+    // Update point averages
+    const averages = await computePointAverages(review.pointId);
+    await Point.findByIdAndUpdate(review.pointId, averages);
+
+    res.json(review);
+  } catch (error) {
+    console.error('Update review error:', error);
+    if (error.kind === 'ObjectId') {
+      return res.status(404).json({ message: 'Review not found' });
+    }
+    res.status(500).json({ message: 'Server error', error: error.message });
+  }
+};

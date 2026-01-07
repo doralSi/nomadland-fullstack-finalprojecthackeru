@@ -10,6 +10,7 @@ const RegionEvents = ({ region }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
+  const [editingEvent, setEditingEvent] = useState(null);
   const [groupedEvents, setGroupedEvents] = useState({
     today: [],
     tomorrow: [],
@@ -79,7 +80,13 @@ const RegionEvents = ({ region }) => {
 
   const handleEventCreated = () => {
     setShowAddModal(false);
+    setEditingEvent(null);
     loadEvents();
+  };
+
+  const handleEditEvent = (event) => {
+    setEditingEvent(event);
+    setShowAddModal(true);
   };
 
   if (loading) {
@@ -124,7 +131,12 @@ const RegionEvents = ({ region }) => {
               </h4>
               <div className="events-grid">
                 {groupedEvents.today.map(event => (
-                  <EventCard key={event._id} event={event} mode="daily" />
+                  <EventCard 
+                    key={event._id} 
+                    event={event} 
+                    mode="daily"
+                    onEdit={handleEditEvent}
+                  />
                 ))}
               </div>
             </div>
@@ -138,7 +150,12 @@ const RegionEvents = ({ region }) => {
               </h4>
               <div className="events-grid">
                 {groupedEvents.tomorrow.map(event => (
-                  <EventCard key={event._id} event={event} mode="daily" />
+                  <EventCard 
+                    key={event._id} 
+                    event={event} 
+                    mode="daily"
+                    onEdit={handleEditEvent}
+                  />
                 ))}
               </div>
             </div>
@@ -152,7 +169,12 @@ const RegionEvents = ({ region }) => {
               </h4>
               <div className="events-grid">
                 {groupedEvents.thisWeek.map(event => (
-                  <EventCard key={event._id} event={event} mode="daily" />
+                  <EventCard 
+                    key={event._id} 
+                    event={event} 
+                    mode="daily"
+                    onEdit={handleEditEvent}
+                  />
                 ))}
               </div>
             </div>
@@ -163,8 +185,13 @@ const RegionEvents = ({ region }) => {
       {showAddModal && (
         <AddEventModal
           region={region}
-          onClose={() => setShowAddModal(false)}
+          onClose={() => {
+            setShowAddModal(false);
+            setEditingEvent(null);
+          }}
           onSuccess={handleEventCreated}
+          editMode={!!editingEvent}
+          eventData={editingEvent}
         />
       )}
     </div>

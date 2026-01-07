@@ -6,7 +6,7 @@ import ConfirmDialog from './ConfirmDialog';
 import AlertDialog from './AlertDialog';
 import './ReviewList.css';
 
-const ReviewList = ({ reviews, currentUserId, isAdmin, onReviewDeleted }) => {
+const ReviewList = ({ reviews, currentUserId, isAdmin, onReviewDeleted, onReviewEdit }) => {
   const [deletingId, setDeletingId] = useState(null);
   const [error, setError] = useState('');
   
@@ -105,6 +105,7 @@ const ReviewList = ({ reviews, currentUserId, isAdmin, onReviewDeleted }) => {
       {reviews.map((review) => {
         const isOwner = currentUserId && review.userId?._id === currentUserId;
         const canDelete = isOwner || isAdmin;
+        const canEdit = isOwner; // Only owner can edit
 
         return (
           <div key={review._id} className="review-card-compact">
@@ -121,16 +122,28 @@ const ReviewList = ({ reviews, currentUserId, isAdmin, onReviewDeleted }) => {
                 </div>
               </div>
               
-              {canDelete && (
-                <button
-                  onClick={() => handleDelete(review._id)}
-                  className="delete-btn-compact"
-                  disabled={deletingId === review._id}
-                  aria-label="Delete review"
-                >
-                  <span className="material-symbols-outlined">delete</span>
-                </button>
-              )}
+              <div className="review-actions-compact">
+                {canEdit && onReviewEdit && (
+                  <button
+                    onClick={() => onReviewEdit(review)}
+                    className="edit-btn-compact"
+                    aria-label="Edit review"
+                  >
+                    <span className="material-symbols-outlined">edit</span>
+                  </button>
+                )}
+                
+                {canDelete && (
+                  <button
+                    onClick={() => handleDelete(review._id)}
+                    className="delete-btn-compact"
+                    disabled={deletingId === review._id}
+                    aria-label="Delete review"
+                  >
+                    <span className="material-symbols-outlined">delete</span>
+                  </button>
+                )}
+              </div>
             </div>
 
             <div className="review-ratings-inline">
